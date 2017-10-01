@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "89988998ar",
-    database: "burger_db"
+    database: "medCheck_db"
 });
 
 // Connect to the database
