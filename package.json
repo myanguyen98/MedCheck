@@ -1,0 +1,27 @@
+{
+  "name": "medcheck",
+  "version": "1.0.0",
+  "description": "MedCheck is a medical application that allows a user to update, create and delete medications that are prescribed to them by specific doctors/",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alrod909/MedCheck.git"
+  },
+  "author": "Alfredo Rodriguez, Mya Nguyen, Brooklee Wilson, Hans Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alrod909/MedCheck/issues"
+  },
+  "homepage": "https://github.com/alrod909/MedCheck#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "method-override": "^2.3.10",
+    "mysql": "^2.14.1",
+    "nodemon": "^1.12.1"
+  }
+}
