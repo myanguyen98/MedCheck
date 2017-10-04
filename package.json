@@ -19,6 +19,7 @@
   "homepage": "https://github.com/alrod909/MedCheck#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cloudinary": "^1.9.0",
     "express": "^4.16.1",
     "method-override": "^2.3.10",
     "mysql": "^2.14.1",

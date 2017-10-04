@@ -1,0 +1,20 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cloudinary Dummy Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/dummyCloudinary.css">
+</head>
+<body>
+<div class="card">
+    <img src="http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg" id="img-preview" />
+    <label class="file-upload-container" for="file-upload">
+        <input id="file-upload" type="file" style="display:none;">
+        Select an Image
+    </label>
+</div>
+<!-- Scripts -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../controllers/cloudinary.js"></script>
+</body>
+</html>

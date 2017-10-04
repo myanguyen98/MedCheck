@@ -8,8 +8,9 @@ CREATE TABLE meds
 	name varchar(255) NOT NULL,
 	drugClass varchar(255) NOT NULL,
 	description varchar(255) NOT NULL,
-	dosage INTEGER,
-	frequency INTEGER,
+	dosage varchar(255) NOT NULL,
+	frequency varchar(255) NOT NULL,
+	img TEXT NOT NULL,
 	doctor_Name varchar(255) NOT NULL,
 	phoneNumber varchar(255) NOT NULL,
 	PRIMARY KEY (id)
