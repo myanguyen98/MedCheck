@@ -1,0 +1,37 @@
+$primary-color: color(#19B5BA) !default;
+$gray-color: color(#979797);
+
+#nav-wrapper{
+  background-color: $primary-color;
+}
+
+h1, h2, h3, h4, h4{
+  color:$primary-color;
+}
+
+hr{
+  color:$gray-color;
+}
+
+.hero{
+  background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-logo{
+  width:100%;
+  padding-top:200px;
+}
+
+.hero-tag{
+  padding-bottom: 200px;
+}
+
+.logo-sm{
+  height: 60px;
+  margin: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var path = require("path");
 
-var port = 4999;
+var PORT = 6969;
 
 var app = express();
 
@@ -23,9 +23,21 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+
+// Routes
+// =============================================================
+require('./routing/html-routing')(app);
+
 // Import routes and give the server access to them.
 var routes = require("./controllers/meds_controller.js");
 
+require('./controllers/cloudinary');
+
+
 app.use("/", routes);
 
-app.listen(port);
+// Starts the server to begin listening
+// =============================================================
+app.listen(process.env.PORT || PORT, function () {
+    console.log("App listening on PORT " + PORT);
+});
