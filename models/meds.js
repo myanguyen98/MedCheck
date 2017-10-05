@@ -18,6 +18,12 @@ var meds = {
         orm.updateOne("meds", objColVals, condition, function(res) {
             cb(res);
         });
+    },
+
+    deleteOne: function(condition, cb) {
+        orm.deleteOne("cats", condition, function(res) {
+            cb(res);
+        });
     }
 };
 
