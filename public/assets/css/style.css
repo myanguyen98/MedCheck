@@ -1,11 +1,14 @@
 #nav-wrapper {
-  background-color: color(#19B5BA); }
+  background-color: #19B5BA; }
 
 h1, h2, h3, h4, h4 {
-  color: color(#19B5BA); }
+  color: #19B5BA; }
 
 hr {
-  color: color(#979797); }
+  color: #979797; }
+
+a .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #19B5BA; }
 
 .hero {
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
