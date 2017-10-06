@@ -1,8 +1,10 @@
-$primary-color: color(#19B5BA) !default;
-$gray-color: color(#979797);
+$primary-color:(#19B5BA);
+$gray-color:(#979797);
+$link-color:(#19B5BA);
+
 
 #nav-wrapper{
-  background-color: $primary-color;
+  background-color:$primary-color;
 }
 
 h1, h2, h3, h4, h4{
@@ -12,6 +14,13 @@ h1, h2, h3, h4, h4{
 hr{
   color:$gray-color;
 }
+
+ a{
+   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+     color: $link-color;
+   }
+ }
+
 
 .hero{
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
@@ -35,3 +44,4 @@ hr{
   margin-left: 10px;
   margin-right: 10px;
 }
+
