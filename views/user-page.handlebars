@@ -1,4 +1,3 @@
-
 <!--Begin Nav-->
 <nav>
     <div class="nav-wrapper">
@@ -195,12 +194,12 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="med_name2" type="text" class="validate">
+                    <input id="med_name2" type="text" class="validate form-control">
                     <label for="med_name2">Medication Name</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="drug_class2" type="text" class="validate">
+                    <input id="drug_class2" type="text" class="validate form-control">
                     <label for="drug_class2">Drug Class</label>
                 </div>
 
@@ -208,7 +207,7 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="med_desc2" type="text" class="validate">
+                    <input id="med_desc2" type="text" class="validate form-control">
                     <label for="med_desc2">Description of medication</label>
                 </div>
             </div>
@@ -217,19 +216,19 @@
 
             <div class="row">
                 <div class="input-field col s4">
-                    <input id="dosage2" type="text" class="validate">
+                    <input id="dosage2" type="text" class="validate form-control">
                     <label for="dosage2">Dosage</label>
                 </div>
 
 
                 <div class="input-field col s4">
-                    <input id="frequency2" type="text" class="validate">
+                    <input id="frequency2" type="text" class="validate form-control">
                     <label for="frequency2">Frequency Taken</label>
                 </div>
 
 
                 <div class="input-field col s4">
-                    <input id="quantity2" type="text" class="validate">
+                    <input id="quantity2" type="text" class="validate form-control">
                     <label for="quantity2">Quantity</label>
                 </div>
 
@@ -239,12 +238,12 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="doctor2" type="text" class="validate">
+                    <input id="doctor2" type="text" class="validate form-control">
                     <label for="doctor2">Prescribing Doctor</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="doctor_number2" type="text" class="validate">
+                    <input id="doctor_number2" type="text" class="validate form-control">
                     <label for="doctor_number2">Prescribing Doctor's Phone #</label>
                 </div>
 
@@ -295,23 +294,6 @@
         // by click on trigger
         $('.modal-trigger').modal();
 
-    });
-
-    $("#add-med").on("click", function (event) {
-        event.preventDefault();
-
-        var newMed = {
-            medName: $("#med_name2").val().trim(),
-            drugClass: $("#drug_class2").val().trim(),
-            description: $("#med_desc2").val().trim(),
-            dosage: $("#dosage2").val().trim(),
-            frequency: $("#frequency2").val().trim(),
-            quantity: $("#quantity2").val().trim(),
-            img: $("#imgAdd").attr("src"),
-            doctor_Name: $("#doctor2").val().trim(),
-            phoneNumber: $("#doctor_number2").val().trim(),
-        };
-        console.log(newMed);
     });
 
     var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
@@ -370,4 +352,90 @@
 
     });
 
+    $("#add-med").on("click", function (event) {
+        event.preventDefault();
+
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+
+            $(".form-control").each(function () {
+                if ($(this).val() === "")
+                    isValid = false;
+            });
+
+            return isValid;
+        }
+
+        // If all required fields are filled
+        if (validateForm() === true) {
+            // Create an object for the user's data
+            var newMed = {
+                medName: $("#med_name2").val().trim(),
+                drugClass: $("#drug_class2").val().trim(),
+                description: $("#med_desc2").val().trim(),
+                dosage: $("#dosage2").val().trim(),
+                frequency: $("#frequency2").val().trim(),
+                quantity: $("#quantity2").val().trim(),
+                img: $("#imgAdd").attr("src"),
+                doctor_Name: $("#doctor2").val().trim(),
+                phoneNumber: $("#doctor_number2").val().trim()
+            };
+
+
+            console.log(newMed);
+
+            // Send an AJAX POST-request with jQuery
+            $.post("/api/meds", newMed)
+            // On success, run the following code
+                    .done(function (data) {
+                        // Log the data we found
+                        console.log(data);
+
+                        $("#med_name2").val("");
+                        $("#drug_class2").val("");
+                        $("#med_desc2").val("");
+                        $("#dosage2").val("");
+                        $("#frequency2").val("");
+                        $("#quantity2").val("");
+                        $("#doctor2").val("");
+                        $("#doctor_number2").val("");
+
+                    });
+
+
+        }
+
+        else {
+            alert("Please fill out all fields before submitting!");
+        }
+
+        return false;
+
+
+    });
+
+    $(".delete").click(function () {
+        var info = {
+            id: $(this).attr("data-id")
+        };
+        $.post("/api/delete", info)
+        // On success, run the following code
+                .done(function (deldata) {
+                    // Log the data we found
+                    console.log(deldata);
+                    console.log("Deleted Successfully!");
+                });
+
+    });
+
+
 </script>
+
+
+<!--<script type="text/javascript" src="../public/js/addMeds.js"></script>-->
+<!--<script type="text/javascript" src="../public/js/displayAllMeds.js"></script>-->
+<!--<script type="text/javascript" src="../public/js/updateMeds.js"></script>-->
+<!--<script type="text/javascript" src="../public/js/cloudinaryUpload.js"></script>-->
+<!--<script type="text/javascript" src="../public/js/clearContent.js"></script>-->
+<!--<script type="text/javascript" src="../public/js/deleteMeds.js"></script>-->

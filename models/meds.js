@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var meds = sequelize.define("meds", {
+    var Meds = sequelize.define("meds", {
         name: DataTypes.STRING,
         drugClass: DataTypes.STRING,
         description: DataTypes.TEXT,
@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
         doctor_Name: DataTypes.STRING,
         phoneNumber: DataTypes.STRING
     });
-    return meds;
+    return Meds;
 };
