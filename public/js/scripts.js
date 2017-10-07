@@ -114,17 +114,28 @@ $("#add-med").on("click", function (event) {
         // Create an object for the user's data
 
         var newMed = {
-            medName: $("#med_name2").val().trim(),
-            drugClass: $("#drug_class2").val().trim(),
-            medDesc: $("#med_desc2").val().trim(),
-            dosage: $("#dosage2").val().trim(),
-            frequency: $("#frequency2").val().trim(),
-            quantity: $("#quantity2").val().trim(),
-            doctor: $("#doctor2").val().trim(),
-            drNumber: $("#doctor_number2").val().trim(),
-            img: $("#file-upload").val().trim()
+            medName: $("#med_name2").val(),
+            drugClass: $("#drug_class2").val(),
+            medDesc: $("#med_desc2").val(),
+            dosage: $("#dosage2").val(),
+            frequency: $("#frequency2").val(),
+            quantity: $("#quantity2").val(),
+            img: $("#imgAdd").attr("src"),
+            doctor: $("#doctor2").val(),
+            drNumber: $("#doctor_number2").val()
+
 
         };
+
+
+        // AJAX post the data to the friends API.
+        $.post("/api/meds", newMed, function (data) {
+
+            console.log("Success");
+
+            console.log(data);
+
+        });
 
     }
 
@@ -178,8 +189,115 @@ $("#file-upload").on('click', function (event) {
 
         console.error(error);
 
-    })
+    });
 
+
+// GET route for getting all of the todos
+    $.get("/api/meds", function(req, res) {
+
+        db.meds.findAll({}).then(function(results) {
+
+
+            console.log(results[0]);
+
+            for(var i = 0; i < results.length; i++)
+            {
+
+                res.json(addTables(results[i], i));
+
+
+            }
+
+        });
+
+    });
+
+    function addTables(data, i) {
+
+        $("#myMeds").prepend("<div class='row'>" +
+            " <ul class=\"collapsible\" data-collapsible=\"accordion\">" +
+            "<li>" +
+            "<div class=\"collapsible-header\">" +
+            "<ul class=\"collection\">" +
+            "<li class=\"collection-item avatar\">" +
+            "<i class=\"material-icons circle\">local_pharmacy</i>" +
+            "<span class=\"title\"><h5>Medication</h5></span>" +
+            "<p>click to expand info <br>" +
+            "</p>" +
+            "</li>" +
+            "</ul>" +
+            "</div>" +
+            "<div class=\"collapsible-body\">" +
+            "<form method=\"post\" class=\"col s12\">" +
+            "<br>" +
+            "<div class=\"row\">" +
+            "<div class=\"input-field col s6\">" +
+            "<input disabled value=\"\"\n" +
+            "    id=\"disabled med_name\" type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"med_name\"> Medication: " + data[i].name + " </label>" +
+            "</div>" +
+            "<div class=\"input-field col s6\">" +
+            "<input disabled value=\"\" id=\"disabled drug_class\"\n" +
+            "    type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"drug_class\">Drug Class: " + data[i].drugClass + " </label>" +
+            "</div>" +
+            "</div>" +
+            "<div class=\"row\">" +
+            "<div class=\"input-field col s12\">" +
+            "<textarea disabled value=\"\" id=\"disabled med_desc\" class=\"userMed materialize-textarea\"></textarea>" +
+            "<label for=\"med_desc\">Description of medication</label>" +
+            "</div>" +
+            "</div>" +
+            "<br>" +
+            "<div class=\"row\">" +
+            "<div class=\"input-field col s4\">" +
+            "<input disabled value=\"\" id=\"disabled dosage\" type=\"text\"\n" +
+            "class=\"userMed validate\">" +
+            "<label for=\"dosage\">Dosage</label>" +
+            "</div>" +
+            "<div class=\"input-field col s4\">" +
+            "<input disabled value=\"\" id=\"disabled frequency\"\n" +
+            "    type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"frequency\">Frequency Taken</label>" +
+            "</div>" +
+            "<div class=\"input-field col s4\">" +
+            "<input disabled value=\"\" id=\"disabled quantity\" type=\"text\"\n" +
+            "class=\"userMed validate\">" +
+            "<label for=\"quantity\">Quantity Left</label>" +
+            "</div>" +
+            "</div>" +
+            "<br>" +
+            "<div class=\"row\">" +
+            "<div class=\"input-field col s6\">" +
+            "<input disabled value=\"\" id=\"disabled doctor\"\n" +
+            "    type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"doctor\">Prescribing Doctor</label>" +
+            " </div>" +
+            "<div class=\"input-field col s6\">\n" +
+            "        <input disabled value=\"\" id=\"disabled doctor_number\"\n" +
+            "    type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"doctor_number\">Prescribing Doctor's Phone #</label>" +
+            "</div>" +
+            "</div>" +
+            "<div class=\"row\">" +
+            "<div class=\"input field col s6\">" +
+            "<div class=\"card\">" +
+            "<img src=\"http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg\"\n" +
+            "\n" +
+            "class=\"img-preview\"/>" +
+            "<label class=\"file-upload-container\" for=\"file-upload-myMedications\">" +
+            "<input id=\"file-upload-myMedications\" type=\"file\" style=\"display:none;\">" +
+            "<a id=\"edit-image\" class=\"waves-effect waves-light btn\">Select\n" +
+            "    an Image</a>" +
+            "</label>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "<div class=\"row\">" +
+            "<div class=\"col s2\">" +
+            " <a class=\"waves-effect waves-light btn\" id=\"edit\"><i class=\"material-icons left\">create</i>Edit</a>" +
+            "</div>");
+    }
 
 });
 

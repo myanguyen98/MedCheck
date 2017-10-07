@@ -15,32 +15,41 @@ module.exports = function(app) {
     app.get("/api/meds", function(req, res) {
 
         db.meds.findAll({}).then(function(results) {
+
             res.json(results);
+
+            console.log(results[0].name);
+
         });
 
     });
 
+    // GET route for getting all of the todo
+
+
+
     // POST route for saving a new todo. You can create a todo using the data on req.body
-    app.post("/api/medsDelete", function(req, res) {
+    app.post("/api/meds", function(req, res) {
 
         console.log("Meds Data:");
         console.log(req.body);
 
         db.meds.create({
-            name: req.body.name,
+            name: req.body.medName,
             drugClass: req.body.drugClass,
-            description: req.body.description,
+            description: req.body.medDesc,
+            dosage: req.body.dosage,
             frequency: req.body.frequency,
             quantity: req.body.quantity,
             img: req.body.img,
-            doctor_Name: req.body.doctor_Name,
-            phoneNumber: req.body.phoneNumber
+            doctor_Name: req.body.doctor,
+            phoneNumber: req.body.drNumber
         });
 
     });
 
     // DELETE route for deleting todos. You can access the todo's id in req.params.id
-    app.delete("/api/medsDelete/:id", function(req, res) {
+    app.delete("/api/meds/:id", function(req, res) {
 
         console.log("Db Data:");
         console.log(req.body);
@@ -53,10 +62,10 @@ module.exports = function(app) {
     });
 
 
-    // PUT route for updating todos. The updated todo will be available in req.body
-    app.put("/api/meds", function(req, res) {
-
-
-    });
+    // // PUT route for updating todos. The updated todo will be available in req.body
+    // app.put("/api/meds", function(req, res) {
+    //
+    //
+    // });
 };
 
