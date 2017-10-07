@@ -1,49 +1,40 @@
-/ *********************************************************************************
+// *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 // Dependencies
 // =============================================================
-var Character = require("../models/character.js");
-// Routes
+
+// Grabbing our models
+var db = require("../models");
+
+/// / Routes
 // =============================================================
-module.exports = function (app) {
-    // Search for Specific Character (or all characters) then provides JSON
-    app.get("/api/:characters?", function (req, res) {
-        // If the user provides a specific character in the URL...
-        if (req.params.characters) {
-            // Then display the JSON for ONLY that character.
-            // (Note how we're using the ORM here to run our searches)
-            Character.findOne({
-                where: {
-                    routeName: req.params.characters
-                }
-            }).then(function (result) {
-                return res.json(result);
-            });
-        }
-        // Otherwise...
-        else {
-            // Otherwise display the data for all of the characters.
-            // (Note how we're using Sequelize here to run our searches)
-            Character.findAll({})
-                .then(function (result) {
-                    return res.json(result);
-                });
-        }
+module.exports = function(app) {
+
+    // GET route for getting all of the todos
+    app.get("/api/meds", function(req, res) {
+
+        db
+
     });
-    // If a user sends data to add a new character...
-    app.post("/api/new", function (req, res) {
-        // Take the request...
-        var character = req.body;
-        // Create a routeName
-        var routeName = character.name.replace(/\s+/g, "").toLowerCase();
-        // Then add the character to the database using sequelize
-        Character.create({
-            routeName: routeName,
-            name: character.name,
-            role: character.role,
-            age: character.age,
-            forcePoints: character.forcePoints
-        });
+
+    // POST route for saving a new todo. You can create a todo using the data on req.body
+    app.post("/api/meds", function(req, res) {
+
+        db
+
+    });
+
+    // DELETE route for deleting todos. You can access the todo's id in req.params.id
+    app.delete("/api/meds/:id", function(req, res) {
+
+
+    });
+
+    // PUT route for updating todos. The updated todo will be available in req.body
+    app.put("/api/meds", function(req, res) {
+
+
     });
 };
+
