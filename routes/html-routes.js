@@ -15,11 +15,11 @@ module.exports = function getSites(app){
     // //Creating a friendList route
     // app.get("/logged", function (req, res) {
     //     res.sendFile(path.join(__dirname, "../public/user-page.html"));
-    // });
+    // })
 
 
     app.get('/', function (req, res) {
-        res.render('index', { title: 'MedCheck | Home', css: ['../public/assets/css/style.css'],
+        res.render('index', { title: 'MedCheck | Home', css: '../public/assets/css/style.css',
             icon: "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png"
 
             // stylesheet: ['https://fonts.googleapis.com/css?family=Ubuntu',
@@ -30,9 +30,10 @@ module.exports = function getSites(app){
     });
 
     app.get('/logged', function (req, res) {
-        res.render('user-page.handlebars', { title: 'MedCheck | Home', css: '../public/assets/css/style.css',
+        res.render('user-page', { title: 'MedCheck | Home', css: '../public/assets/css/style.css',
             icon: "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png"});
     });
 
 
 };
+
