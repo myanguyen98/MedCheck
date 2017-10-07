@@ -7,7 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:800" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
 
     <title>MedCheck | User Page</title>
 
@@ -23,7 +26,7 @@
             <img class="logo-sm"
                  src="http://res.cloudinary.com/alrod909/image/upload/v1507168780/Med-Check-logo-02_u3ssje.png"> </a>
         <ul id="nav-mobile" class="right">
-            <li><a class="modal-trigger" href="/">Logout</a></li>
+            <li><a class="modal-trigger" href="#modal2">Logout</a></li>
         </ul>
     </div>
 </nav>
@@ -33,7 +36,7 @@
 <div id="modal2" class="modal">
     <div class="modal-content">
         <h4>Log Out</h4>
-        <p>Log Out Button</p>
+        <a class="waves-effect waves-light btn" href="#" onclick="signOut();">Sign out</a>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">X</a>
@@ -366,147 +369,96 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<script type="text/javascript">
-    //  nav  color
-    $(".nav-wrapper").css("background-color", "#19B5BA");
+<script type='text/javascript' src="assets/scripts/scripts.js"></script>
 
-    //    Modal Function
-    $(function () {
-        //initialize all modals
-        $('.modal').modal();
-        // by click on trigger
-        $('.modal-trigger').modal();
+<!--<script type="text/javascript">-->
+    <!--//  nav  color-->
+    <!--$(".nav-wrapper").css("background-color", "#19B5BA");-->
 
-    });
+    <!--//    Modal Function-->
+    <!--$(function () {-->
+        <!--//initialize all modals-->
+        <!--$('.modal').modal();-->
+        <!--// by click on trigger-->
+        <!--$('.modal-trigger').modal();-->
 
-    $("#add-med").on("click", function (event) {
-        event.preventDefault();
+    <!--});-->
 
-        var newMed = {
-            medName: $("#med_name2").val().trim(),
-            drugClass: $("#drug_class2").val().trim(),
-            description: $("#med_desc2").val().trim(),
-            dosage: $("#dosage2").val().trim(),
-            frequency: $("#frequency2").val().trim(),
-            quantity: $("#quantity2").val().trim(),
-            img: $("#imgAdd").attr("src"),
-            doctor_Name: $("#doctor2").val().trim(),
-            phoneNumber: $("#doctor_number2").val().trim(),
-        };
-        console.log(newMed);
-    });
+    <!--$("#add-med").on("click", function (event) {-->
+        <!--event.preventDefault();-->
 
+        <!--var newMed = {-->
+            <!--medName: $("#med_name2").val().trim(),-->
+            <!--drugClass: $("#drug_class2").val().trim(),-->
+            <!--description: $("#med_desc2").val().trim(),-->
+            <!--dosage: $("#dosage2").val().trim(),-->
+            <!--frequency: $("#frequency2").val().trim(),-->
+            <!--quantity: $("#quantity2").val().trim(),-->
+            <!--img: $("#imgAdd").attr("src"),-->
+            <!--doctor_Name: $("#doctor2").val().trim(),-->
+            <!--phoneNumber: $("#doctor_number2").val().trim(),-->
+        <!--};-->
+        <!--console.log(newMed);-->
+    <!--});-->
 
-    $('.modal').modal();
-
-    $(window).on('load',function(){
-        $('#alertModal').modal('open');
-    });
+    <!--var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";-->
+    <!--var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';-->
 
 
-    $("#save-change").hide();
+    <!--var imgPreview = document.getElementById('img-preview');-->
+    <!--var fileUpload = document.getElementById('file-upload');-->
+
+    <!--$("#file-upload").on('click', function (event) {-->
+
+        <!--event.preventDefault();-->
+
+        <!--var file = event.target.files[0];-->
+        <!--var formData = new FormData();-->
+
+        <!--formData.append('file', file);-->
+        <!--formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);-->
+
+        <!--axios({-->
+            <!--url: CLOUDINARY_URL,-->
+            <!--method: 'POST',-->
+            <!--headers:-->
+                <!--{-->
+                    <!--'Content-Type': 'application/x-www-form-urlencoded'-->
+                <!--},-->
+            <!--data: formData-->
+        <!--}).then(function (res) {-->
+
+            <!--console.log(res);-->
+
+            <!--imgPreview.src = res.data.secure_url;-->
 
 
-    $("#edit").on("click", function(event){
-        event.preventDefault();
-        $("#save-change").show();
-        $(".userMed").prop('disabled', false);
+        <!--}).catch(function (error) {-->
+
+            <!--console.error(error);-->
+
+        <!--})-->
 
 
-        
-    });
-
-    $("#save-change").on("click", function(event){
-        event.preventDefault();
-        $("#save-change").hide();
-        $(".userMed").prop('disabled', true);
-    })
-
-    $("#deleteMed").on("click",function(event){
-        event.preventDefault();
-        $("#myMeds").remove();
-    })
-
-    $("#add-med").on("click", function(event){
-        event.preventDefault();
-
-        
-        var newMed = {
-            medName: $("#med_name2").val().trim(),
-            drugClass:$("#drug_class2").val().trim(),
-            medDesc:$("#med_desc2").val().trim(),
-            dosage:$("#dosage2").val().trim(),
-            frequency:$("#frequency2").val().trim(),
-            quantity:$("#quantity2").val().trim(),
-            doctor:$("#doctor2").val().trim(),
-            drNumber:$("#doctor_number2").val().trim(),
-            img:$("#file-upload").val().trim()
-
-        };
-
-        console.log(newMed);
+    <!--});-->
 
 
-    })
+    <!--$("#clear-content").on("click", function (event) {-->
 
+        <!--event.preventDefault();-->
 
-    var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
-    var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
+        <!--$("#med_name2").val("");-->
+        <!--$("#drug_class2").val("");-->
+        <!--$("#med_desc2").val("");-->
+        <!--$("#dosage2").val("");-->
+        <!--$("#frequency2").val("");-->
+        <!--$("#quantity2").val("");-->
+        <!--$("#doctor2").val("");-->
+        <!--$("#doctor_number2").val("");-->
 
-    var imgPreview = document.getElementById('img-preview');
-    var fileUpload = document.getElementById('file-upload');
+    <!--});-->
 
-    $("#file-upload").on('click', function (event) {
-
-        event.preventDefault();
-
-        var file = event.target.files[0];
-        var formData = new FormData();
-
-        formData.append('file', file);
-        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-        axios({
-            url: CLOUDINARY_URL,
-            method: 'POST',
-            headers:
-                {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            data: formData
-        }).then(function (res) {
-
-            console.log(res);
-
-            imgPreview.src = res.data.secure_url;
-
-
-        }).catch(function (error) {
-
-            console.error(error);
-
-        })
-
-
-    });
-
-
-    $("#clear-content").on("click", function (event) {
-
-        event.preventDefault();
-
-        $("#med_name2").val("");
-        $("#drug_class2").val("");
-        $("#med_desc2").val("");
-        $("#dosage2").val("");
-        $("#frequency2").val("");
-        $("#quantity2").val("");
-        $("#doctor2").val("");
-        $("#doctor_number2").val("");
-
-    });
-
-</script>
+<!--</script>-->
 
 
 </body>
