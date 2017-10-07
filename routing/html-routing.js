@@ -18,14 +18,16 @@ module.exports = function getSites(app){
         res.sendFile(path.join(__dirname, "../public/user-page.html"));
     });
 
-    //Creating a friendList route
-    app.get("/about", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/badges.html"));
-    });
 
-    //Creating a friendList route
-    app.get("/cloudinary", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/dummyCloudinary.html"));
-    });
+    // router.get('/', function (req, res, next) {
+    //     res.render('index', { title: 'MyApp', css: ['style.css', 'custom.css'],
+    //         icon: "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png",
+    //         stylesheet: ['https://fonts.googleapis.com/css?family=Ubuntu',
+    //             'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
+    //             'https://fonts.googleapis.com/icon?family=Material+Icons',
+    //             'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css']});
+    // });
+
+
 
 };
