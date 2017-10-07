@@ -23,25 +23,30 @@ $('a[href^="#about"]').click(function () {
     return false;
 });
 //=====================User Page Functions================================
-//add medication
-$("#add-med").on("click", function (event) {
+
+//Clears form box when adding new medications
+function clearContent() {
+
+        $("#med_name2").val("");
+        $("#drug_class2").val("");
+        $("#med_desc2").val("");
+        $("#dosage2").val("");
+        $("#frequency2").val("");
+        $("#quantity2").val("");
+        $("#doctor2").val("");
+        $("#doctor_number2").val("");
+
+}
+
+$("#clear-content").on("click", function (event) {
+
     event.preventDefault();
 
-    var newMed = {
-        medName: $("#med_name2").val().trim(),
-        drugClass: $("#drug_class2").val().trim(),
-        description: $("#med_desc2").val().trim(),
-        dosage: $("#dosage2").val().trim(),
-        frequency: $("#frequency2").val().trim(),
-        quantity: $("#quantity2").val().trim(),
-        img: $("#imgAdd").attr("src"),
-        doctor_Name: $("#doctor2").val().trim(),
-        phoneNumber: $("#doctor_number2").val().trim(),
-    };
-    console.log(newMed);
+    clearContent();
+
 });
 
-
+//Modal Popo at beginning
 $('.modal').modal();
 
 $(window).on('load', function () {
@@ -49,6 +54,7 @@ $(window).on('load', function () {
 });
 
 
+//Hides edit button
 $("#save-change").hide();
 $("#edit-image").hide();
 
@@ -59,7 +65,6 @@ $("#edit").on("click", function (event) {
     $(".userMed").prop('disabled', false);
     $("#edit-image").show();
 
-
 });
 
 $("#save-change").on("click", function (event) {
@@ -69,34 +74,63 @@ $("#save-change").on("click", function (event) {
     $("#edit-image").hide();
 });
 
+//Deletes medications
 $("#deleteMed").on("click", function (event) {
     event.preventDefault();
     $("#myMeds").remove();
 });
 
+
+//Adds a new medication
 $("#add-med").on("click", function (event) {
     event.preventDefault();
 
+    // Form validation
+    function validateForm() {
+        var isValid = true;
 
-    var newMed = {
-        medName: $("#med_name2").val().trim(),
-        drugClass: $("#drug_class2").val().trim(),
-        medDesc: $("#med_desc2").val().trim(),
-        dosage: $("#dosage2").val().trim(),
-        frequency: $("#frequency2").val().trim(),
-        quantity: $("#quantity2").val().trim(),
-        doctor: $("#doctor2").val().trim(),
-        drNumber: $("#doctor_number2").val().trim(),
-        img: $("#file-upload").val().trim()
+        $(".form-control").each(function () {
+            if ($(this).val() === "")
+                isValid = false;
+        });
 
-    };
+        return isValid;
+    }
+
+    // If all required fields are filled
+    if (validateForm() === true) {
+        // Create an object for the user's data
+
+        var newMed = {
+            medName: $("#med_name2").val().trim(),
+            drugClass: $("#drug_class2").val().trim(),
+            medDesc: $("#med_desc2").val().trim(),
+            dosage: $("#dosage2").val().trim(),
+            frequency: $("#frequency2").val().trim(),
+            quantity: $("#quantity2").val().trim(),
+            doctor: $("#doctor2").val().trim(),
+            drNumber: $("#doctor_number2").val().trim(),
+            img: $("#file-upload").val().trim()
+
+        };
+
+    }
+
+    else
+    {
+
+        
+
+
+    }
 
     console.log(newMed);
 
+    clearContent();
 
 });
 
-
+//Uploads information to CLoudinary
 var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
 var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
 
@@ -138,19 +172,8 @@ $("#file-upload").on('click', function (event) {
 });
 
 
-$("#clear-content").on("click", function (event) {
 
-    event.preventDefault();
 
-    $("#med_name2").val("");
-    $("#drug_class2").val("");
-    $("#med_desc2").val("");
-    $("#dosage2").val("");
-    $("#frequency2").val("");
-    $("#quantity2").val("");
-    $("#doctor2").val("");
-    $("#doctor_number2").val("");
 
-});
 
 
