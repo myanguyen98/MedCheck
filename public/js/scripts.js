@@ -212,7 +212,7 @@ $("#file-upload").on('click', function (event) {
 
     });
 
-    
+
 
 });
 
@@ -239,6 +239,8 @@ function runWaitListQuery() {
 
         function addTables(data) {
 
+            console.log(data.description, i);
+
         $("#myMeds").prepend("<div class='row'>" +
             " <ul class=\"collapsible\" data-collapsible=\"accordion\">" +
             "<li>" +
@@ -246,88 +248,100 @@ function runWaitListQuery() {
             "<ul class=\"collection\">" +
             "<li class=\"collection-item avatar\">" +
             "<i class=\"material-icons circle\">local_pharmacy</i>" +
-            "<span class=\"title\"><h5>Medication</h5></span>" +
+            "<span class=\"title\"><h5>Medication: " +  data.name + " </h5></span>" +
             "<p>click to expand info <br>" +
             "</p>" +
             "</li>" +
             "</ul>" +
             "</div>" +
             "<div class=\"collapsible-body\">" +
-            "<form method=\"post\" class=\"col s12\">" +
+            "<form method=\"GET\" class=\"col s12\">" +
             "<br>" +
             "<div class=\"row\">" +
             "<div class=\"input-field col s6\">" +
-            "<input disabled value=\"\"\n" +
-            "    id=\"disabled med_name\" type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"med_name\"> Medication: " + data.name + " </label>" +
+            "<input disabled value=\"" + data.name + "\"id=\"disabled med_name" + i + "\" type=\"text\" class=\"userMed validate\">" +
+            "<label for=\"med_name"  + i + "\">Medication</label>" +
             "</div>" +
             "<div class=\"input-field col s6\">" +
-            "<input disabled value=\"\" id=\"disabled drug_class\"\n" +
+            "<input disabled value=\"" + data.drugClass + "\" id=\"disabled drug_class" + i + "\"\n" +
             "    type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"drug_class\">Drug Class: " + data.drugClass + " </label>" +
+            "<label for=\"drug_class"  + i + " \">Drug Class</label>" +
             "</div>" +
             "</div>" +
             "<div class=\"row\">" +
             "<div class=\"input-field col s12\">" +
-            "<textarea disabled value=\"\" id=\"disabled med_desc\" class=\"userMed materialize-textarea\"></textarea>" +
-            "<label for=\"med_desc\">Description of medication</label>" +
+            "<textarea disabled value=\"" + data.description + "\" id=\"disabled med_desc" + i + "\" class=\"userMed materialize-textarea\"></textarea>" +
+            "<label for=\"med_desc"  + i + "\">Description of medication</label>" +
             "</div>" +
             "</div>" +
             "<br>" +
             "<div class=\"row\">" +
             "<div class=\"input-field col s4\">" +
-            "<input disabled value=\"\" id=\"disabled dosage\" type=\"text\"\n" +
+            "<input disabled value=\"" + data.dosage + "\" id=\"disabled dosage" + i + "\" type=\"text\"\n" +
             "class=\"userMed validate\">" +
-            "<label for=\"dosage\">Dosage</label>" +
+            "<label for=\"dosage"  + i + "\">Dosage</label>" +
             "</div>" +
             "<div class=\"input-field col s4\">" +
-            "<input disabled value=\"\" id=\"disabled frequency\"\n" +
+            "<input disabled value=\"" + data.frequency + "\" id=\"disabled frequency" + i + "\"\n" +
             "    type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"frequency\">Frequency Taken</label>" +
+            "<label for=\"frequency"  + i + "\">Frequency Taken</label>" +
             "</div>" +
             "<div class=\"input-field col s4\">" +
-            "<input disabled value=\"\" id=\"disabled quantity\" type=\"text\"\n" +
+            "<input disabled value=\"" + data.quantity + "\" id=\"disabled quantity" + i + "\" type=\"text\"\n" +
             "class=\"userMed validate\">" +
-            "<label for=\"quantity\">Quantity Left</label>" +
+            "<label for=\"quantity"  + i + "\">Quantity Left</label>" +
             "</div>" +
             "</div>" +
             "<br>" +
             "<div class=\"row\">" +
             "<div class=\"input-field col s6\">" +
-            "<input disabled value=\"\" id=\"disabled doctor\"\n" +
+            "<input disabled value=\"" + data.doctor_Name + "\" id=\"disabled doctor" + i + "\"\n" +
             "    type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"doctor\">Prescribing Doctor</label>" +
+            "<label for=\"doctor"  + i + "\">Prescribing Doctor</label>" +
             " </div>" +
             "<div class=\"input-field col s6\">\n" +
-            "        <input disabled value=\"\" id=\"disabled doctor_number\"\n" +
+            "        <input disabled value=\"" + data.phoneNumber + "\" id=\"disabled doctor_number" + i + "\"\n" +
             "    type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"doctor_number\">Prescribing Doctor's Phone #</label>" +
+            "<label for=\"doctor_number"  + i + "\">Prescribing Doctor's Phone #</label>" +
             "</div>" +
             "</div>" +
             "<div class=\"row\">" +
             "<div class=\"input field col s6\">" +
             "<div class=\"card\">" +
-            "<img src=\"http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg\"\n" +
+            "<img src=\"" + data.img + "\"\n" +
             "\n" +
             "class=\"img-preview\"/>" +
             "<label class=\"file-upload-container\" for=\"file-upload-myMedications\">" +
-            "<input id=\"file-upload-myMedications\" type=\"file\" style=\"display:none;\">" +
-            "<a id=\"edit-image\" class=\"waves-effect waves-light btn\">Select\n" +
+            "<input class= \"uploadButton\" id=\"file-upload-myMedications" + i + "\" type=\"file\">" +
+            "<a id=\"edit-image" + i + "\" class=\"waves-effect waves-light btn uploadBtn\">Select\n" +
             "    an Image</a>" +
             "</label>" +
             "</div>" +
             "</div>" +
             "</div>" +
-            "<div class=\"row\">" +
-            "<div class=\"col s2\">" +
-            " <a class=\"waves-effect waves-light btn\" id=\"edit\"><i class=\"material-icons left\">create</i>Edit</a>" +
-            "</div>");
+            "<div class=\"row\">\n" +
+            "\n" +
+            "                                <div class=\"col s2 editButtons\">\n" +
+            "                                    <a class=\"waves-effect waves-light btn-large\" id=\"edit" + i + "\"><i\n" +
+            "                                            class=\"material-icons left\">create</i>Edit</a>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"col s2 editButtons\">\n" +
+            "                                    <button type=\"submit\" class=\"waves-effect waves-light btn-large\" id=\"save-change" + i + "\"><i\n" +
+            "                                            class=\"material-icons left\">save</i>Save\n" +
+            "                                    </button>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"col s2 editButtons\">\n" +
+            "                                    <a id=\"deleteMed\" class=\"waves-effect waves-light btn-large\"><i\n" +
+            "                                            class=\"material-icons left\" >delete_forever</i>Del</a>\n" +
+            "                                </div>\n" +
+            "\n" +
+            "                            </div>");
     }
 
         // Loop through and display each of the customers
         for (var i = 0; i < data.length; i++) {
 
-            addTables(data);
+            addTables(data[i]);
 
           }
       });

@@ -66,153 +66,13 @@
     <!-- My Medications Tab -->
 
     <div id="myMeds" class="col s12">
-        <div class="row">
 
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header">
-                        <ul class="collection">
-
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">local_pharmacy</i>
-                                <span class="title"><h5>Medication</h5></span>
-                                <p>click to expand info <br>
-                                </p>
-
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="collapsible-body">
-
-                        <form method="post" class="col s12">
-
-                            <br>
-                            <!-- All the uneditable content coming from the database -->
-                            <div class="row">
-                                <div class="input-field col s6">
-
-                                    <input disabled value=""
-                                           id="disabled med_name" type="text" class="userMed validate">
-                                    <label for="med_name">Medication Name</label>
-                                </div>
-
-                                <div class="input-field col s6">
-                                    <input disabled value="" id="disabled drug_class"
-                                           type="text" class="userMed validate">
-                                    <label for="drug_class">Drug Class</label>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-field col s12">
-
-                                    <textarea disabled value="" id="disabled med_desc" class="userMed materialize-textarea"></textarea>
-                                    <label for="med_desc">Description of medication</label>
-
-                                </div>
-                            </div>
-
-                            <br>
-
-                            <div class="row">
-                                <div class="input-field col s4">
-
-                                    <input disabled value="" id="disabled dosage" type="text"
-                                           class="userMed validate">
-                                    <label for="dosage">Dosage</label>
-
-                                </div>
-
-
-                                <div class="input-field col s4">
-
-                                    <input disabled value="" id="disabled frequency"
-                                           type="text" class="userMed validate">
-                                    <label for="frequency">Frequency Taken</label>
-
-                                    
-                                </div>
-
-
-                                <div class="input-field col s4">
-
-                                    <input disabled value="" id="disabled quantity" type="text"
-                                           class="userMed validate">
-                                    <label for="quantity">Quantity Left</label>
-
-                                </div>
-
-                            </div>
-
-                            <br>
-
-                            <div class="row">
-                                <div class="input-field col s6">
-
-                                    <input disabled value="" id="disabled doctor"
-                                           type="text" class="userMed validate">
-                                    <label for="doctor">Prescribing Doctor</label>
-                                </div>
-
-                                <div class="input-field col s6">
-                                    <input disabled value="" id="disabled doctor_number"
-                                           type="text" class="userMed validate">
-                                    <label for="doctor_number">Prescribing Doctor's Phone #</label>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="input field col s6">
-                                    <div class="card">
-                                        <img src="http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg"
-
-                                             class="img-preview"/>
-                                        <label class="file-upload-container" for="file-upload-myMedications">
-                                            <input id="file-upload-myMedications" type="file" style="display:none;">
-                                            <a id="edit-image" class="waves-effect waves-light btn" style="width: 100%">Select
-                                                an Image</a>
-
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col s2" style="width:17%">
-                                    <a class="waves-effect waves-light btn-large" id="edit"><i class="material-icons left" style="font-size: 35px">create</i>Edit</a>
-                                </div>
-                                <div class="col s2" style="width: 17%">
-                                    <button type="submit" class="waves-effect waves-light btn-large" id="save-change"><i class="material-icons left" style="font-size: 35px">save</i>Save</button>
-                                </div>
-                                <div class="col s2" style="width:17%">
-                                    <a id="deleteMed" class="waves-effect waves-light btn-large"><i class="material-icons left" style="font-size: 35px">delete_forever</i>Delete</a>
-                                </div>
-                                
-                            </div>
-
-
-                        </form>
-                    </div>
-                </li>
-            </ul>
-
-
-        </div>
-        
     </div>
 
 
     <!-- Add medication form in seperate tab -->
     <div id="addMed" class="col s12">
-        
+
 
         <!-- Unordered list with all of the preset medications from our database -->
         <ul class="collection">
@@ -312,7 +172,8 @@
             <div class="row">
                 <div class="col s12">
 
-                    <a class="waves-effect waves-light btn" id="add-med"><i class="material-icons left">add_circle</i>Add Medication</a>
+                    <a class="waves-effect waves-light btn" id="add-med"><i class="material-icons left">add_circle</i>Add
+                        Medication</a>
 
                 </div>
             </div>
@@ -325,47 +186,44 @@
 </div>
 
 
-  <div id="alertModal" class="modal fade in">
+<div id="alertModal" class="modal fade in">
     <div class="modal-header">
-      <h3 id="modalHead">MedCheck Reminder
-        <i class="medium material-icons right">notifications</i>
-      </h3>
+        <h3 id="modalHead">MedCheck Reminder
+            <i class="medium material-icons right">notifications</i>
+        </h3>
 
 
     </div>
     <div class="modal-content">
-      <h5 id="modalBody">Remember to take your +meds taken from their med page+ today.</h5>
+        <h5 id="modalBody">Remember to take your +meds taken from their med page+ today.</h5>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Okay<i class="medium material-icons right">check_circle</i></a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Okay<i
+                class="medium material-icons right">check_circle</i></a>
     </div>
-  </div>
-
+</div>
 
 <style type="text/css">
-    
-    #alertModal{
-        border-radius: 14px;
 
+    #alertModal {
+        border-radius: 14px;
 
     }
 
-
-    #modalHead{
+    #modalHead {
         padding: 15px;
-        background-color:#19B5BA;
-        color:white; 
-    } 
+        background-color: #19B5BA;
+        color: white;
+    }
 
+    .modal-content {
+        color: #19B5BA;
+    }
 
-    .modal-content{
-        color:#19B5BA;
-    } 
-
-    .modal-action{
-        background-color:#19B5BA;
-        color:white;
-        border-radius: 35px 
+    .modal-action {
+        background-color: #19B5BA;
+        color: white;
+        border-radius: 35px
     }
 </style>
 
@@ -378,8 +236,6 @@
 
 
 <script type='text/javascript' src="js/scripts.js"></script>
-
-
 
 
 </body>
