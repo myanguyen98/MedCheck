@@ -9,6 +9,37 @@
 
    });
 
+
+   $(window).on('load',function(){
+        $('#alertModal').modal('open');
+    });
+
+
+    $("#save-change").hide();
+
+
+    $("#edit").on("click", function(event){
+        event.preventDefault();
+        $("#save-change").show();
+        $(".userMed").prop('disabled', false);
+
+
+        
+    });
+
+    $("#save-change").on("click", function(event){
+        event.preventDefault();
+        $("#save-change").hide();
+        $(".userMed").prop('disabled', true);
+    })
+
+    $("#deleteMed").on("click",function(event){
+        event.preventDefault();
+        $("#myMeds").remove();
+    });
+
+
+
 //  nav  color
 $(".nav-wrapper").css("background-color", "#19B5BA");
 //     Card Color links
