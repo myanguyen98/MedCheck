@@ -20,7 +20,7 @@ app.use(methodOverride("_method"));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main", layoutsDir: __dirname + './views/layouts/main.handlebars'}));
 app.set("view engine", "handlebars");
 
 
@@ -30,8 +30,6 @@ require('./routing/html-routing')(app);
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/meds_controller.js");
-
-require('./controllers/cloudinary');
 
 
 app.use("/", routes);

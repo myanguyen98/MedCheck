@@ -6,15 +6,16 @@ var router = express.Router();
 var meds = require("../models/meds.js");
 
 // Create selectAll our routes and set up logic within those routes where required.
-router.get("/", function (req, res) {
+router.get("/api/allDrugs", function (req, res) {
     meds.selectAll(function (data) {
         var hbsObject = {
             meds: data
         };
         console.log(hbsObject);
-        res.render("index", hbsObject);
+        res.json(data);
     });
 });
+
 
 router.post("/", function (req, res) {
     meds.insertOne([
