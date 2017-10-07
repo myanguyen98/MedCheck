@@ -7,25 +7,39 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/css/user.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
     <title>MedCheck | User Page</title>
 
 
 </head>
 <body>
-<!-- Header -->
+
+<!--Begin Nav-->
+
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
-            <img width="130"
-                 src="http://res.cloudinary.com/alrod909/image/upload/v1507166956/Med-Check-logo_ccyipj.png"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="badges.html">Logout</a></li>
-            <li><a href="collapsible.html">About</a></li>
+        <a href="/" class="brand-logo">
+            <img class="logo-sm"
+                 src="http://res.cloudinary.com/alrod909/image/upload/v1507168780/Med-Check-logo-02_u3ssje.png"> </a>
+        <ul id="nav-mobile" class="right">
+            <li><a class="modal-trigger" href="/">Logout</a></li>
         </ul>
     </div>
 </nav>
+
+<!--Modal logOut-->
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>Log Out</h4>
+        <p>Log Out Button</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">X</a>
+    </div>
+</div>
+<!--End Modal Login-->
 
 <blockquote>
     <h3>
@@ -36,13 +50,18 @@
 <div class="row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s3"><a href="#myMeds"><i class="material-icons">local_pharmacy</i>My Medications</a></li>
-            <li class="tab col s3"><a href="#addMed"><i class="material-icons">add</i>Add Medication</a>
+
+            <li class="tab col s6"><a href="#myMeds"><i class="material-icons">local_pharmacy</i>My Medications</a></li>
+            <li class="tab col s6"><a href="#addMed"><i class="material-icons">add</i>Add Medication</a>
+
             </li>
         </ul>
     </div>
 
     <!-- Uneditable medication form with all the med info and pic -->
+
+    <!-- My Medications Tab -->
+
     <div id="myMeds" class="col s12">
         <div class="row">
 
@@ -61,10 +80,9 @@
                             </li>
 
                         </ul>
-                        <!-- Delete Button to delete all information for a medication -->
-                        
+
                     </div>
-                    
+
                     <div class="collapsible-body">
 
                         <form method="post" class="col s12">
@@ -73,6 +91,7 @@
                             <!-- All the uneditable content coming from the database -->
                             <div class="row">
                                 <div class="input-field col s6">
+
                                     <input disabled value=""
                                            id="disabled med_name" type="text" class="userMed validate">
                                     <label for="med_name">Medication Name</label>
@@ -82,13 +101,16 @@
                                     <input disabled value="" id="disabled drug_class"
                                            type="text" class="userMed validate">
                                     <label for="drug_class">Drug Class</label>
+
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea disabled value="" id="diabled med_desc" class="userMed materialize-textarea"></textarea>
+
+                                    <textarea disabled value="" id="disabled med_desc" class="userMed materialize-textarea"></textarea>
                                     <label for="med_desc">Description of medication</label>
+
                                 </div>
                             </div>
 
@@ -96,23 +118,30 @@
 
                             <div class="row">
                                 <div class="input-field col s4">
+
                                     <input disabled value="" id="disabled dosage" type="text"
                                            class="userMed validate">
                                     <label for="dosage">Dosage</label>
+
                                 </div>
 
 
                                 <div class="input-field col s4">
+
                                     <input disabled value="" id="disabled frequency"
                                            type="text" class="userMed validate">
                                     <label for="frequency">Frequency Taken</label>
+
+                                    
                                 </div>
 
 
                                 <div class="input-field col s4">
+
                                     <input disabled value="" id="disabled quantity" type="text"
                                            class="userMed validate">
                                     <label for="quantity">Quantity Left</label>
+
                                 </div>
 
                             </div>
@@ -121,6 +150,7 @@
 
                             <div class="row">
                                 <div class="input-field col s6">
+
                                     <input disabled value="" id="disabled doctor"
                                            type="text" class="userMed validate">
                                     <label for="doctor">Prescribing Doctor</label>
@@ -130,24 +160,29 @@
                                     <input disabled value="" id="disabled doctor_number"
                                            type="text" class="userMed validate">
                                     <label for="doctor_number">Prescribing Doctor's Phone #</label>
+
                                 </div>
 
                             </div>
 
                             <div class="row">
-                                <div class="input field col s12">
+                                <div class="input field col s6">
                                     <div class="card">
                                         <img src="http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg"
-                                             class="img-preview" width="250px"/>
-                                        <label class="file-upload-container" for="file-upload">
-                                            <input disabled value="" class="userMed file-upload" type="file" id="disabled" style="display:none;">
-                                            Select an Image
+
+                                             class="img-preview"/>
+                                        <label class="file-upload-container" for="file-upload-myMedications">
+                                            <input id="file-upload-myMedications" type="file" style="display:none;">
+                                            <a class="disabled waves-effect waves-light btn" style="width: 100%">Select
+                                                an Image</a>
+
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
+
                                 <div class="col s2">
                                     <a class="waves-effect waves-light btn" id="edit"><i class="material-icons left">create</i>Edit</a>
                                 </div>
@@ -172,6 +207,7 @@
     <!-- Add medication form in seperate tab -->
     <div id="addMed" class="col s12">
         
+
         <!-- Unordered list with all of the preset medications from our database -->
         <ul class="collection">
 
@@ -183,6 +219,7 @@
                 </p>
                 <!-- button that will automatically add the medication and all of its info to the "My medications" page -->
                 <a href="#!" class="secondary-content"><i class="medium material-icons right">add_box</i></a>
+                <a href="#!" id="clear-content" class="secondary-content"><i class="medium material-icons right">delete_box</i></a>
             </li>
 
         </ul>
@@ -254,13 +291,13 @@
             </div>
 
             <div class="row">
-                <div class="input field col s12">
+                <div class="input field col s6">
                     <div class="card">
                         <img src="http://res.cloudinary.com/alrod909/image/upload/v1507102377/sample.jpg"
-                             id="img-preview" width="250px"/>
-                        <label class="file-upload-container" for="file-upload">
-                            <input id="file-upload" type="file" style="display:none;">
-                            Select an Image
+                             class="img-preview" id="imgAdd"/>
+                        <label class="file-upload-container" for="file-upload-addMedications">
+                            <input id="file-upload-addMedications" type="file" style="display:none;">
+                            <a class="waves-effect waves-light btn" style="width: 100%;">Select an Image</a>
                         </label>
                     </div>
                 </div>
@@ -268,7 +305,9 @@
 
             <div class="row">
                 <div class="col s12">
+
                     <a class="waves-effect waves-light btn" id="add-med"><i class="material-icons left">add_circle</i>Add Medication</a>
+
                 </div>
             </div>
 
@@ -328,6 +367,34 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script type="text/javascript">
+    //  nav  color
+    $(".nav-wrapper").css("background-color", "#19B5BA");
+
+    //    Modal Function
+    $(function () {
+        //initialize all modals
+        $('.modal').modal();
+        // by click on trigger
+        $('.modal-trigger').modal();
+
+    });
+
+    $("#add-med").on("click", function (event) {
+        event.preventDefault();
+
+        var newMed = {
+            medName: $("#med_name2").val().trim(),
+            drugClass: $("#drug_class2").val().trim(),
+            description: $("#med_desc2").val().trim(),
+            dosage: $("#dosage2").val().trim(),
+            frequency: $("#frequency2").val().trim(),
+            quantity: $("#quantity2").val().trim(),
+            img: $("#imgAdd").attr("src"),
+            doctor_Name: $("#doctor2").val().trim(),
+            phoneNumber: $("#doctor_number2").val().trim(),
+        };
+        console.log(newMed);
+    });
 
 
     $('.modal').modal();
@@ -389,7 +456,9 @@
     var imgPreview = document.getElementById('img-preview');
     var fileUpload = document.getElementById('file-upload');
 
-    fileUpload.addEventListener('change', function (event) {
+    $("#file-upload").on('click', function (event) {
+
+        event.preventDefault();
 
         var file = event.target.files[0];
         var formData = new FormData();
@@ -421,7 +490,24 @@
 
     });
 
+
+    $("#clear-content").on("click", function (event) {
+
+        event.preventDefault();
+
+        $("#med_name2").val("");
+        $("#drug_class2").val("");
+        $("#med_desc2").val("");
+        $("#dosage2").val("");
+        $("#frequency2").val("");
+        $("#quantity2").val("");
+        $("#doctor2").val("");
+        $("#doctor_number2").val("");
+
+    });
+
 </script>
+
 
 </body>
 </html>

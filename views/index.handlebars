@@ -1,54 +1,138 @@
-<h1>Burger App</h1>
 
-<ul>
-    {{#each burger}}
-        {{#unless this.eaten}}
-            <li>
-                {{this.name}}
-
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="eaten" value="true">
-                    <button type="submit">Devour!</button>
-                </form>
-
-                {{> burger/delete-cat}}
-            </li>
-        {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Burgers That have been eaten!</h2>
-
-<ul>
-    {{#each burger}}
-        {{#if this.eaten}}
-            <li>
-                {{this.name}}
-
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="eaten" value="false">
-                    <button type="submit">Re-Order!</button>
-                </form>
-
-                {{> burger/delete-cat}}
-            </li>
-        {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-update-form" action="/" method="POST">
-
-    <div class="form-group">
-        <label for="ca">Burger Name:</label>
-        <input type="text" id="ca" name="name">
+<!--Begin Nav-->
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">
+            <img class="logo-sm"
+                 src="http://res.cloudinary.com/alrod909/image/upload/v1507168780/Med-Check-logo-02_u3ssje.png"> </a>
+        <ul id="nav-mobile" class="right">
+            <li><a class="modal-trigger" href="#modal1">Login</a></li>
+            <li><a href="#about-section">About</a></li>
+        </ul>
     </div>
+</nav>
+<!--End Nav-->
 
-    <div class="form-group">
-        <label for="eaten">Sleepy?</label><br>
-        <input type="radio" name="eaten" value="1" checked> Devour!<br>
-        <input type="radio" name="eaten" value="0"> Re-order
+<!--Modal login-->
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Login with Google</h4>
+        <p>A bunch of text</p>
     </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">X</a>
+    </div>
+</div>
+<!--End Modal Login-->
 
-    <button type="submit">Add a Burger</button>
-</form>
+<!--Hero-->
+<div class="row hero">
+    <!--Helper col to center-->
+    <div class="col s2"></div>
+    <div class="col s8">
+        <div class="caption center-align">
+            <img class="hero-logo valign-wrapper pulse"
+                 src="http://res.cloudinary.com/alrod909/image/upload/v1507166956/Med-Check-logo_ccyipj.png">
+            <h5 class="light grey-text hero-tag">Easily track your Medications.</h5>
+        </div>
+    </div>
+    <!--Helper col to center-->
+    <div class="col s2"></div>
+</div>
+<!--Hero New-->
+
+<!--About-->
+<section id="about-section"></section>
+<h1>About Us</h1>
+<br>
+<div class="row">
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Con</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Jquery Link-->
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript for Materilized -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!--Google login intergration Google Platform Library-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!--Scripts-->
+<script>
+    //    Modal Function
+    $(function () {
+        //initialize all modals
+        $('.modal').modal();
+        //or by click on trigger
+        $('.modal-trigger').modal();
+
+    });
+
+    //  nav  color
+    $(".nav-wrapper").css("background-color", "#19B5BA");
+    //     Card Color links
+    $ (".card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating)").css("color","#19B5BA");
+
+    //    scroll function
+    $('a').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 500);
+        return false;
+    });
+
+</script>

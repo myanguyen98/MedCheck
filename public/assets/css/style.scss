@@ -1,8 +1,25 @@
-$primary-color: color(#19B5BA) !default;
-$gray-color: color(#979797);
+$primary-color:(#19B5BA) !default;
+$main-color:(#19B5BA);
+$link-color:(#19B5BA);
+
+$gray-color:(#979797);
+
+
 
 #nav-wrapper{
-  background-color: $primary-color;
+  background-color:$main-color;
+}
+
+nav{
+  height:150px;
+}
+
+.collapsible-body{
+  padding: 0;
+}
+
+.collapsible-header{
+  justify-content: space-between;
 }
 
 h1, h2, h3, h4, h4{
@@ -12,6 +29,23 @@ h1, h2, h3, h4, h4{
 hr{
   color:$gray-color;
 }
+
+a{
+  color: $primary-color;
+}
+
+ a{
+   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+     color: $link-color;
+   }
+ }
+
+.img-preview{
+
+  width: 100%;
+}
+
+
 
 .hero{
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
@@ -35,3 +69,13 @@ hr{
   margin-left: 10px;
   margin-right: 10px;
 }
+
+blockquote {
+  color: $primary-color;
+}
+.tabs .tab a {
+  color: $primary-color;
+}
+
+
+

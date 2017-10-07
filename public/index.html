@@ -7,11 +7,12 @@
     <title>MedCheck | Home</title>
 
     <!--Styles-->
-    <!--custom Styles-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Compiled and minified CSS Materialzied -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--custom Styles-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--End Styles-->
+    <link rel="icon" href= "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png">
 
 </head>
 <body>
@@ -20,12 +21,12 @@
 <!--Begin Nav-->
 <nav>
     <div class="nav-wrapper">
-        <a href="index.html" class="brand-logo">
+        <a href="/" class="brand-logo">
             <img class="logo-sm"
                  src="http://res.cloudinary.com/alrod909/image/upload/v1507168780/Med-Check-logo-02_u3ssje.png"> </a>
         <ul id="nav-mobile" class="right">
             <li><a class="modal-trigger" href="#modal1">Login</a></li>
-            <li><a href="/badges">About</a></li>
+            <li><a href="#about-section">About</a></li>
         </ul>
     </div>
 </nav>
@@ -61,19 +62,60 @@
 <!--Hero New-->
 
 <!--About-->
+<section id="about-section"></section>
 <h1>About Us</h1>
+<br>
 <div class="row">
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
 
-    <div class="col s4">
-        <h3>Easy</h3>
     </div>
-    <div class="col s4">
-        <h3>Fast</h3>
-    </div>
-    <div class="col s4">
-        <h3>Simple</h3>
-    </div>
+    <div class="col s4 m4">
+        <!--Card-->
+        <div class="card">
+            <div class="card-image">
+                <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
+                <span class="card-title">Con</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
 
+    </div>
 </div>
 
 <!--Jquery Link-->
@@ -90,14 +132,30 @@
 
 <!--Scripts-->
 <script>
+    //    Modal Function
     $(function () {
         //initialize all modals
         $('.modal').modal();
         //or by click on trigger
         $('.modal-trigger').modal();
 
-    }); // end of document ready
+    });
+
+    //  nav  color
+    $(".nav-wrapper").css("background-color", "#19B5BA");
+    //     Card Color links
+    $(".card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating)").css("color", "#19B5BA");
+
+    //    scroll function
+    $('a').click(function () {
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 500);
+        return false;
+    });
 
 </script>
+
+
 </body>
 </html>
