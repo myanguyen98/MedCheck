@@ -53,4 +53,11 @@ blockquote {
 .collapsible-header {
   justify-content: space-between; }
 
+
+.img-preview {
+  width: 100%; }
+
+.waves-effect .waves-light .btn {
+  width: 100%; }
+
 /*# sourceMappingURL=style.css.map */

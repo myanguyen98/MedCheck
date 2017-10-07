@@ -33,8 +33,6 @@ a{
   }
 }
 
-
-
 .hero{
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
   background-position: center;
@@ -62,6 +60,7 @@ blockquote {
   color: $primary-color;
 }
 .tabs .tab a  {
+
   color: $primary-color;
 }
 
@@ -82,3 +81,12 @@ blockquote {
   justify-content: space-between;
 }
 //End IMPORTANT
+.img-preview{
+  width: 100%;
+}
+
+.waves-effect .waves-light .btn{
+  width: 100%;
+}
+
+
