@@ -142,7 +142,7 @@ $("#add-med").on("click", function (event) {
     else
     {
 
-        alert("Please fill out all fields before submitting!");
+        $('#fill-out').modal('open');
     }
 
     console.log(newMed);
@@ -212,7 +212,32 @@ $("#file-upload").on('click', function (event) {
 
     });
 
-    function addTables(data, i) {
+    
+
+});
+
+
+function runWaitListQuery() {
+
+      // Here we get the location of the root page.
+      // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+      var currentURL = window.location.origin;
+
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: currentURL + "/api/meds", method: "GET" })
+      .done(function(data) {
+
+        // Here we are logging the URL so we have access to it for troubleshooting
+        console.log("------------------------------------");
+        console.log("URL: " + currentURL + "/api/waitlist");
+        console.log("------------------------------------");
+
+        // Here we then log the NYTData to console, where it will show up as an object.
+        console.log(data);
+        console.log("------------------------------------");
+
+
+        function addTables(data) {
 
         $("#myMeds").prepend("<div class='row'>" +
             " <ul class=\"collapsible\" data-collapsible=\"accordion\">" +
@@ -234,12 +259,12 @@ $("#file-upload").on('click', function (event) {
             "<div class=\"input-field col s6\">" +
             "<input disabled value=\"\"\n" +
             "    id=\"disabled med_name\" type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"med_name\"> Medication: " + data[i].name + " </label>" +
+            "<label for=\"med_name\"> Medication: " + data.name + " </label>" +
             "</div>" +
             "<div class=\"input-field col s6\">" +
             "<input disabled value=\"\" id=\"disabled drug_class\"\n" +
             "    type=\"text\" class=\"userMed validate\">" +
-            "<label for=\"drug_class\">Drug Class: " + data[i].drugClass + " </label>" +
+            "<label for=\"drug_class\">Drug Class: " + data.drugClass + " </label>" +
             "</div>" +
             "</div>" +
             "<div class=\"row\">" +
@@ -299,8 +324,17 @@ $("#file-upload").on('click', function (event) {
             "</div>");
     }
 
-});
+        // Loop through and display each of the customers
+        for (var i = 0; i < data.length; i++) {
 
+            addTables(data);
+
+          }
+      });
+    }
+
+
+runWaitListQuery();
 
 
 
