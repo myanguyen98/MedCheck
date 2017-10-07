@@ -78,6 +78,18 @@ $("#save-change").on("click", function (event) {
 $("#deleteMed").on("click", function (event) {
     event.preventDefault();
     $("#myMeds").remove();
+
+    var meds = {
+        id: $(this).attr("data-id")
+    };
+    $.post("/api/delete", meds)
+    // On success, run the following code
+        .done(function (deldata) {
+            // Log the data we found
+            console.log(deldata);
+            console.log("Deleted Successfully!");
+        });
+
 });
 
 
@@ -119,14 +131,14 @@ $("#add-med").on("click", function (event) {
     else
     {
 
-        
-
-
+        alert("Please fill out all fields before submitting!");
     }
 
     console.log(newMed);
 
     clearContent();
+
+    return false;
 
 });
 

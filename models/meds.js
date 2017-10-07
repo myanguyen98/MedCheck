@@ -9,6 +9,8 @@ module.exports = function(sequelize, DataTypes) {
         img: DataTypes.TEXT,
         doctor_Name: DataTypes.STRING,
         phoneNumber: DataTypes.STRING
+    }, {
+        timestamps: false
     });
     return Meds;
 };
