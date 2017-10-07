@@ -192,28 +192,6 @@ $("#file-upload").on('click', function (event) {
     });
 
 
-// GET route for getting all of the todos
-    $.get("/api/meds", function(req, res) {
-
-        db.meds.findAll({}).then(function(results) {
-
-
-            console.log(results[0]);
-
-            for(var i = 0; i < results.length; i++)
-            {
-
-                res.json(addTables(results[i], i));
-
-
-            }
-
-        });
-
-    });
-
-
-
 });
 
 
