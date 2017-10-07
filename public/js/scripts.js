@@ -50,12 +50,14 @@ $(window).on('load', function () {
 
 
 $("#save-change").hide();
+$("#edit-image").hide();
 
 
 $("#edit").on("click", function (event) {
     event.preventDefault();
     $("#save-change").show();
     $(".userMed").prop('disabled', false);
+    $("#edit-image").show();
 
 
 });
@@ -64,6 +66,7 @@ $("#save-change").on("click", function (event) {
     event.preventDefault();
     $("#save-change").hide();
     $(".userMed").prop('disabled', true);
+    $("#edit-image").hide();
 });
 
 $("#deleteMed").on("click", function (event) {
