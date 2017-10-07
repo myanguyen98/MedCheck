@@ -1,8 +1,11 @@
+//Materialize Color 
 $primary-color:(#19B5BA) !default;
 $main-color:(#19B5BA);
 $link-color:(#19B5BA);
 
 $gray-color:(#979797);
+
+$header-font: ('Catamaran', sans-serif);
 
 
 
@@ -10,20 +13,10 @@ $gray-color:(#979797);
   background-color:$main-color;
 }
 
-nav{
-  height:150px;
-}
-
-.collapsible-body{
-  padding: 0;
-}
-
-.collapsible-header{
-  justify-content: space-between;
-}
-
 h1, h2, h3, h4, h4{
   color:$primary-color;
+  font-family: $header-font;
+  text-transform: uppercase;
 }
 
 hr{
@@ -34,18 +27,11 @@ a{
   color: $primary-color;
 }
 
- a{
-   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
-     color: $link-color;
-   }
- }
-
-.img-preview{
-
-  width: 100%;
+a{
+  .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+    color: $link-color;
+  }
 }
-
-
 
 .hero{
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
@@ -73,9 +59,31 @@ a{
 blockquote {
   color: $primary-color;
 }
-.tabs .tab a {
+.tabs .tab a  {
   color: $primary-color;
 }
 
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: $primary-color;
+}
 
+.tabs .indicator {
+  color: $primary-color;
+  background-color: $primary-color;
+}
+//!IMPORTANT User Page Collapsible fix
+.collapsible-body{
+  padding: 0;
+}
 
+.collapsible-header{
+  justify-content: space-between;
+}
+//End IMPORTANT
+.img-preview{
+  width: 100%;
+}
+
+.waves-effect .waves-light .btn{
+  width: 100%;
+}

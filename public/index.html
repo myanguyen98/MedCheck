@@ -1,9 +1,12 @@
 <!--Green = 19B5BA-->
+<!--Client ID = 231664727343-vuspvrttt5hgu9fdp1cijr
+<!--Client Secret = WhWV8ikjgI4G4_k_xFni_-5P-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="231664727343-vuspvrttt5hgu9fdp1cijr.apps.googleusercontent.com">
     <title>MedCheck | Home</title>
 
     <!--Styles-->
@@ -11,8 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--custom Styles-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:800" rel="stylesheet">
     <!--End Styles-->
-    <link rel="icon" href= "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png">
 
 </head>
 <body>
@@ -21,12 +25,12 @@
 <!--Begin Nav-->
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo">
+        <a href="index.html" class="brand-logo">
             <img class="logo-sm"
                  src="http://res.cloudinary.com/alrod909/image/upload/v1507168780/Med-Check-logo-02_u3ssje.png"> </a>
         <ul id="nav-mobile" class="right">
             <li><a class="modal-trigger" href="#modal1">Login</a></li>
-            <li><a href="#about-section">About</a></li>
+            <li><a href='#about-section'>About</a></li>
         </ul>
     </div>
 </nav>
@@ -36,8 +40,8 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4>Login with Google</h4>
-        <p>A bunch of text</p>
+        <h4>Log In with Google</h4>
+        <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">X</a>
@@ -71,7 +75,7 @@
         <div class="card">
             <div class="card-image">
                 <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
-                <span class="card-title">Card Title</span>
+                <span class="card-title">Do More</span>
             </div>
             <div class="card-content">
                 <p>I am a very simple card. I am good at containing small bits of information.
@@ -87,7 +91,7 @@
         <div class="card">
             <div class="card-image">
                 <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
-                <span class="card-title">Card Title</span>
+                <span class="card-title">Easy</span>
             </div>
             <div class="card-content">
                 <p>I am a very simple card. I am good at containing small bits of information.
@@ -104,7 +108,7 @@
         <div class="card">
             <div class="card-image">
                 <img src="https://static.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg">
-                <span class="card-title">Con</span>
+                <span class="card-title">Convenient</span>
             </div>
             <div class="card-content">
                 <p>I am a very simple card. I am good at containing small bits of information.
@@ -116,6 +120,8 @@
         </div>
 
     </div>
+</div>
+
 </div>
 
 <!--Jquery Link-->
@@ -130,32 +136,32 @@
 <!--Google login intergration Google Platform Library-->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<!--Scripts-->
-<script>
-    //    Modal Function
-    $(function () {
-        //initialize all modals
-        $('.modal').modal();
-        //or by click on trigger
-        $('.modal-trigger').modal();
+<!--Custom Scripts-->
+<script type='text/javascript' src="js/scripts.js"></script>
 
-    });
+<!--<script type="text/javascript">-->
+<!--//    Modal Function-->
+<!--$(function() {-->
+<!--//initialize all modals-->
+<!--$('.modal').modal();-->
+<!--//or by click on trigger-->
+<!--$('.trigger-modal').modal();-->
+<!--}); // end of document ready-->
 
-    //  nav  color
-    $(".nav-wrapper").css("background-color", "#19B5BA");
-    //     Card Color links
-    $(".card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating)").css("color", "#19B5BA");
+<!--//  nav  color-->
+<!--$(".nav-wrapper").css("background-color", "#19B5BA");-->
+<!--// Card Color links-->
+<!--$ (".card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating)").css("color","#19B5BA");-->
 
-    //    scroll function
-    $('a').click(function () {
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top
-        }, 500);
-        return false;
-    });
+<!--//scroll function-->
+<!--var $root = $('html, body');-->
 
-</script>
-
-
+<!--$('a[href^="#about"]').click(function () {-->
+<!--$root.animate({-->
+<!--scrollTop: $( $.attr(this, 'href') ).offset().top-->
+<!--}, 500);-->
+<!--return false;-->
+<!--});-->
+<!--</script>-->
 </body>
 </html>
