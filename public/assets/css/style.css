@@ -53,11 +53,28 @@ blockquote {
 .collapsible-header {
   justify-content: space-between; }
 
-
 .img-preview {
   width: 100%; }
 
 .waves-effect .waves-light .btn {
   width: 100%; }
+
+.editButtons {
+  width: 17%; }
+
+.material-icons {
+  font-size: 35px; }
+
+.uploadButton {
+  display: none; }
+
+.uploadBtn {
+  width: 100%; }
+
+.material-icons {
+  font-size: 30px; }
+
+blockquote {
+  border-left: 5px solid #19B5BA; }
 
 /*# sourceMappingURL=style.css.map */
