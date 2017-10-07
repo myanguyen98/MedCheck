@@ -5,21 +5,7 @@ var router = express.Router();
 // Import the model (meds.js) to use its database functions.
 var meds = require("../models/meds.js");
 
-// router.get('/', function (req, res) {
-//     res.render('index', { title: 'MedCheck | Home', css: ['../public/assets/css/style.css'],
-//         icon: "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png"
-//
-//         // stylesheet: ['https://fonts.googleapis.com/css?family=Ubuntu',
-//         //     'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
-//         //     'https://fonts.googleapis.com/icon?family=Material+Icons',
-//         //     'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css']
-//     });
-// });
-//
-// router.get('/logged', function (req, res) {
-//     res.render('user-page.handlebars', { title: 'MedCheck | Home', css: '../public/assets/css/style.css',
-//         icon: "http://res.cloudinary.com/alrod909/image/upload/v1507336746/pillBootle_ozj0ra.png"});
-// });
+
 
 // Create selectAll our routes and set up logic within those routes where required.
 router.get("/api/allDrugs", function (req, res) {

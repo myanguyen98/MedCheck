@@ -2,26 +2,18 @@
 // CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
 // *********************************************************************************
 
-// Require mysql
-var mysql = require("mysql");
+// Dependencies
+var Sequelize = require("sequelize");
 
-// Set up our connection information
-var connection = mysql.createConnection({
-    port: 3306,
+// Creates mySQL connection using Sequelize
+var sequelize = new Sequelize("medCheck_db", "root", "89988998ar", {
     host: "localhost",
-    user: "root",
-    password: "89988998ar",
-    database: "medCheck_db"
-});
-
-// Connect to the database
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
+    dialect: "mysql",
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
     }
-    console.log("connected as id " + connection.threadId);
 });
-
-// Export connection
-module.exports = connection;
+// Exports the connection for other files to use
+module.exports = sequelize;
