@@ -1,20 +1,10 @@
 #nav-wrapper {
   background-color: #19B5BA; }
 
-nav{
-  height:75px;
-}
-
-.collapsible-body{
-  padding: 0;
-}
-
-.collapsible-header{
-  justify-content: space-between;
-}
-
 h1, h2, h3, h4, h4 {
-  color: #19B5BA; }
+  color: #19B5BA;
+  font-family: "Catamaran", sans-serif;
+  text-transform: uppercase; }
 
 hr {
   color: #979797; }
@@ -24,11 +14,6 @@ a {
 
 a .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #19B5BA; }
-
-.img-preview{
-
-  width: 100%;
-}
 
 .hero {
   background-image: url("http://res.cloudinary.com/alrod909/image/upload/v1507168771/homeBG-white_bhelgs.jpg");
@@ -54,5 +39,18 @@ blockquote {
 
 .tabs .tab a {
   color: #19B5BA; }
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #19B5BA; }
+
+.tabs .indicator {
+  color: #19B5BA;
+  background-color: #19B5BA; }
+
+.collapsible-body {
+  padding: 0; }
+
+.collapsible-header {
+  justify-content: space-between; }
 
 /*# sourceMappingURL=style.css.map */
