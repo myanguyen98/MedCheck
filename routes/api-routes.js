@@ -14,19 +14,19 @@ module.exports = function(app) {
     // GET route for getting all of the todos
     app.get("/api/meds", function(req, res) {
 
-        db.findAll({}).then(function(results) {
+        db.meds.findAll({}).then(function(results) {
             res.json(results);
         });
 
     });
 
     // POST route for saving a new todo. You can create a todo using the data on req.body
-    app.post("/api/meds", function(req, res) {
+    app.post("/api/medsDelete", function(req, res) {
 
         console.log("Meds Data:");
         console.log(req.body);
 
-        db.create({
+        db.meds.create({
             name: req.body.name,
             drugClass: req.body.drugClass,
             description: req.body.description,
@@ -40,12 +40,12 @@ module.exports = function(app) {
     });
 
     // DELETE route for deleting todos. You can access the todo's id in req.params.id
-    app.delete("/api/meds/:id", function(req, res) {
+    app.delete("/api/medsDelete/:id", function(req, res) {
 
         console.log("Db Data:");
         console.log(req.body);
 
-        db.destroy({
+        db.meds.destroy({
             where: {
                 id: req.body.id
             }
