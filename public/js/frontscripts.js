@@ -1,13 +1,13 @@
 
 //=======================Global Functions=================================
 //    Modal Function
-   $(function () {
+   
        //initialize all modals
        $('.modal').modal();
        //or by click on trigger
        $('.modal-trigger').modal();
 
-   });
+  
 
 
    $(window).on('load',function(){
