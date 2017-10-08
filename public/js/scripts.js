@@ -55,27 +55,10 @@ $(window).on('load', function () {
 
 
 //Hides edit button
-$("#save-change").hide();
-$("#edit-image").hide();
 
-
-$("#edit").on("click", function (event) {
-    event.preventDefault();
-    $("#save-change").show();
-    $(".userMed").prop('disabled', false);
-    $("#edit-image").show();
-
-});
-
-$("#save-change").on("click", function (event) {
-    event.preventDefault();
-    $("#save-change").hide();
-    $(".userMed").prop('disabled', true);
-    $("#edit-image").hide();
-});
 
 //Deletes medications
-$("#deleteMed").on("click", function (event) {
+$(".deleteMed").on("click", function (event) {
     event.preventDefault();
     $("#myMeds").remove();
 
@@ -299,18 +282,18 @@ function runWaitListQuery() {
             "</div>" +
             "<div class=\"row\">\n" +
             "\n" +
-            "                                <div class=\"col s2 editButtons\">\n" +
-            "                                    <a class=\"waves-effect waves-light btn-large\" id=\"edit" + i + "\"><i\n" +
+            "                                <div class=\"col s2\">\n" +
+            "                                    <a class=\"waves-effect waves-light btn-large editBtn\" id=\"edit" + i + "\"><i\n" +
             "                                            class=\"material-icons left\">create</i>Edit</a>\n" +
             "                                </div>\n" +
-            "                                <div class=\"col s2 editButtons\">\n" +
-            "                                    <button type=\"submit\" class=\"waves-effect waves-light btn-large\" id=\"save-change" + i + "\"><i\n" +
+            "                                <div class=\"col s2\">\n" +
+            "                                    <button type=\"submit\" class=\"waves-effect waves-light btn-large save\" id=\"save-change" + i + "\"><i\n" +
             "                                            class=\"material-icons left\">save</i>Save\n" +
             "                                    </button>\n" +
             "                                </div>\n" +
-            "                                <div class=\"col s2 editButtons\">\n" +
+            "                                <div class=\"col s2\">\n" +
             "                                    <a id=\"deleteMed\" class=\"waves-effect waves-light btn-large\"><i\n" +
-            "                                            class=\"material-icons left\" >delete_forever</i>Del</a>\n" +
+            "                                            class=\"material-icons left deleteMed\" >delete_forever</i>Del</a>\n" +
             "                                </div>\n" +
             "\n" +
             "                            </div>");
@@ -323,10 +306,32 @@ function runWaitListQuery() {
 
           }
       });
+
+        $(".save").hide();
+        $(".uploadBtn").hide();
+
     }
 
 
 runWaitListQuery();
+
+
+
+
+$(".edit").on("click", function (event) {
+    event.preventDefault();
+    $(".save").show();
+    $(".userMed").prop('disabled', false);
+    $(".uploadBtn").show();
+
+});
+
+$(".save").on("click", function (event) {
+    event.preventDefault();
+    $(".save").hide();
+    $(".userMed").prop('disabled', true);
+    $(".uploadBtn").hide();
+});
 
 
 
