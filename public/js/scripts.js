@@ -274,14 +274,14 @@ function runWaitListQuery() {
             "class=\"img-preview\"/>" +
             "<label class=\"file-upload-container\" for=\"file-upload-myMedications\">" +
             "<input class= \"uploadButton\" id=\"file-upload-myMedications" + i + "\" type=\"file\">" +
-            "<a id=\"edit-image" + i + "\" class=\"waves-effect waves-light btn uploadBtn\">Select\n" +
+            "<a id=\"edit-image" + i + "\" class=\"waves-effect waves-light btn uploadBtn2\">Select\n" +
             "    an Image</a>" +
             "</label>" +
             "</div>" +
             "</div>" +
             "</div>" +
             "<div class=\"row\">\n" +
-            "\n" +
+
             "                                <div class=\"col s2\">\n" +
             "                                    <a class=\"waves-effect waves-light btn-large editBtn\" id=\"edit" + i + "\"><i\n" +
             "                                            class=\"material-icons left\">create</i>Edit</a>\n" +
@@ -292,11 +292,10 @@ function runWaitListQuery() {
             "                                    </button>\n" +
             "                                </div>\n" +
             "                                <div class=\"col s2\">\n" +
-            "                                    <a id=\"deleteMed\" class=\"waves-effect waves-light btn-large\"><i\n" +
-            "                                            class=\"material-icons left deleteMed\" >delete_forever</i>Del</a>\n" +
+            "                                    <a id=\"deleteMed" + i + "\" class=\"waves-effect waves-light btn-large\"><i\n" +
+            "                                            class=\"material-icons left deleteMed\">delete_forever</i>Del</a>\n" +
             "                                </div>\n" +
-            "\n" +
-            "                            </div>");
+            "</div>");
     }
 
         // Loop through and display each of the customers
@@ -307,8 +306,14 @@ function runWaitListQuery() {
           }
       });
 
-        $(".save").hide();
-        $(".uploadBtn").hide();
+      setInterval(hideButtons, 500);
+
+      function hideButtons() {
+
+          $(".save").hide();
+          $(".uploadBtn2").hide();
+
+      }
 
     }
 
@@ -316,13 +321,11 @@ function runWaitListQuery() {
 runWaitListQuery();
 
 
-
-
-$(".edit").on("click", function (event) {
+$(".editBtn").on("click", function (event) {
     event.preventDefault();
     $(".save").show();
     $(".userMed").prop('disabled', false);
-    $(".uploadBtn").show();
+    $(".uploadBtn2").show();
 
 });
 
@@ -330,7 +333,7 @@ $(".save").on("click", function (event) {
     event.preventDefault();
     $(".save").hide();
     $(".userMed").prop('disabled', true);
-    $(".uploadBtn").hide();
+    $(".uploadBtn2").hide();
 });
 
 

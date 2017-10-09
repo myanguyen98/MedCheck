@@ -77,4 +77,36 @@ blockquote {
 blockquote {
   border-left: 5px solid #19B5BA; }
 
+#alertModal, #fill-out {
+  border-radius: 14px; }
+
+#modalHead {
+  padding: 15px;
+  background-color: #19B5BA;
+  color: white; }
+
+.modal-content {
+  color: #19B5BA; }
+
+.modal-action {
+  background-color: #19B5BA;
+  color: white;
+  border-radius: 35px; }
+
+#alertModal, #fill-out {
+  border-radius: 14px; }
+
+.modalHead {
+  padding: 15px;
+  background-color: #19B5BA;
+  color: white; }
+
+.modal-content {
+  color: #19B5BA; }
+
+.modal-action {
+  background-color: #19B5BA;
+  color: white;
+  border-radius: 35px; }
+
 /*# sourceMappingURL=style.css.map */

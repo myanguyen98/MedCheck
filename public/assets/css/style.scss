@@ -115,3 +115,45 @@ blockquote {
 blockquote {
   border-left: 5px solid $primary-color ;
 }
+
+#alertModal, #fill-out {
+  border-radius: 14px;
+
+}
+
+#modalHead {
+  padding: 15px;
+  background-color: $primary-color ;
+  color: white;
+}
+
+.modal-content {
+  color: $primary-color ;
+}
+
+.modal-action {
+  background-color: $primary-color ;
+  color: white;
+  border-radius: 35px
+}
+
+#alertModal, #fill-out {
+  border-radius: 14px;
+
+}
+
+.modalHead {
+  padding: 15px;
+  background-color: $primary-color ;
+  color: white;
+}
+
+.modal-content {
+  color: $primary-color ;
+}
+
+.modal-action {
+  background-color: $primary-color ;
+  color: white;
+  border-radius: 35px
+}
