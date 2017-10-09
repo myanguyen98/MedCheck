@@ -67,6 +67,99 @@
 
     <div id="myMeds" class="col s12">
 
+        <div class="row">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li class="">
+                    <div class="collapsible-header">
+                        <ul class="collection">
+                            <li class="collection-item avatar"><i class="material-icons circle">local_pharmacy</i><span
+                                    class="title"><h5>Medication: Hetlioz</h5></span>
+                                <p>click to expand info<br></p></li>
+                        </ul>
+                    </div>
+                    <div class="collapsible-body" style="display: none;">
+                        <form method="GET" class="col s12"><br>
+                            <div class="row">
+                                <div class="input-field col s6"><input disabled="" value="Hetlioz" id="med_name3"
+                                                                       type="text" class="userMed3 validate"><label
+                                        for="med_name3" class="active">Medication</label></div>
+                                <div class="input-field col s6"><input disabled="" value="Melatonin" id="drug_class3"
+                                                                       type="text" class="userMed3 validate"><label
+                                        for="drug_class3" class="active">Drug Class</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12"><textarea disabled="" id="med_desc3" value="Each
+                                                                           alprazolam tablet, for oral
+                                                                           administration, contains 0.25,
+                                                                           0.5, or 1 mg of alprazolam.
+                                                                           inactive ingredients docusate
+                                                                           sodium, lactose monohydrate,
+                                                                           magnesium stearate, microcrystalline
+                                                                           cellulose, pregelatinized starch,
+                                                                           and sodium benzoate.
+                                                                           additionally, the 0.5 also fd
+                                                                           c yellow #6 aluminum lake,
+                                                                           blue #2 lake." class="userMed
+                                    materialize-textarea"></textarea><label for="med_desc3">Description of
+                                        medication</label></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="input-field col s4"><input disabled="" value="20 mg" id="dosage3"
+                                                                       type="text" class="userMed3 validate"><label
+                                        for="dosage3" class="active">Dosage</label></div>
+                                <div class="input-field col s4"><input disabled=""
+                                                                       value="To skip the dose that night if they cannot take HETLIOZ at approximately the same time on a given night."
+                                                                       id="frequency3" type="text"
+                                                                       class="userMed3 validate"><label for="frequency3"
+                                                                                                        class="active">Frequency
+                                    Taken</label></div>
+                                <div class="input-field col s4"><input disabled="" value="30 Capsules" id="quantity3"
+                                                                       type="text" class="userMed3 validate"><label
+                                        for="quantity3" class="active">Quantity Left</label></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="input-field col s6"><input disabled="" value="Dr. Mantis Toboggan"
+                                                                       id="doctor3" type="text"
+                                                                       class="userMed3 validate"><label for="doctor3"
+                                                                                                        class="active">Prescribing
+                                    Doctor</label></div>
+                                <div class="input-field col s6"><input disabled="" value="385-555-0176"
+                                                                       id="doctor_number3" type="text"
+                                                                       class="userMed3 validate"><label
+                                        for="doctor_number3" class="active">Prescribing Doctor's Phone #</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="input field col s6">
+                                    <div class="card"><img
+                                            src="http://res.cloudinary.com/alrod909/image/upload/v1507098800/hetlioz_vddpda.jpg"
+                                            class="img-preview"><label class="file-upload-container"
+                                                                       for="file-upload-myMedications3"><input
+                                            class="uploadButton" id="file-upload-myMedications3" type="file"><a
+                                            id="edit-image3" class="waves-effect waves-light btn uploadBtn2"
+                                            style="display: none;">Select an Image</a></label></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s2"><a class="waves-effect waves-light btn-large editBtn" id="edit3"><i
+                                        class="material-icons left">create</i>Edit</a></div>
+                                <div class="col s2">
+                                    <button type="submit" class="waves-effect waves-light btn-large save"
+                                            id="save-change3" style="display: none;"><i
+                                            class="material-icons left">save</i>Save
+                                    </button>
+                                </div>
+                                <div class="col s2"><a id="deleteMed3"
+                                                       class="waves-effect waves-light btn-large deleteMed"><i
+                                        class="material-icons left">delete_forever</i>Del</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
 
@@ -101,21 +194,21 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="med_name2" type="text" class="validate form-control">
-                    <label for="med_name2">Medication Name</label>
+                    <input id="med_name" type="text" class="validate form-control">
+                    <label for="med_name">Medication Name</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="drug_class2" type="text" class="validate form-control">
-                    <label for="drug_class2">Drug Class</label>
+                    <input id="drug_class" type="text" class="validate form-control">
+                    <label for="drug_class">Drug Class</label>
                 </div>
 
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="med_desc2" class="materialize-textarea form-control"></textarea>
-                    <label for="med_desc2">Description of medication</label>
+                    <textarea id="med_desc" class="materialize-textarea form-control"></textarea>
+                    <label for="med_desc">Description of medication</label>
                 </div>
             </div>
 
@@ -123,20 +216,20 @@
 
             <div class="row">
                 <div class="input-field col s4">
-                    <input id="dosage2" type="text" class="validate form-control">
-                    <label for="dosage2">Dosage</label>
+                    <input id="dosage" type="text" class="validate form-control">
+                    <label for="dosage">Dosage</label>
                 </div>
 
 
                 <div class="input-field col s4">
-                    <input id="frequency2" type="text" class="validate form-control">
-                    <label for="frequency2">Frequency Taken</label>
+                    <input id="frequency" type="text" class="validate form-control">
+                    <label for="frequency">Frequency Taken</label>
                 </div>
 
 
                 <div class="input-field col s4">
-                    <input id="quantity2" type="text" class="validate form-control">
-                    <label for="quantity2">Quantity Left</label>
+                    <input id="quantity" type="text" class="validate form-control">
+                    <label for="quantity">Quantity Left</label>
                 </div>
 
             </div>
@@ -145,13 +238,13 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="doctor2" type="text" class="validate form-control">
-                    <label for="doctor2">Prescribing Doctor</label>
+                    <input id="doctor" type="text" class="validate form-control">
+                    <label for="doctor">Prescribing Doctor</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="doctor_number2" type="text" class="validate form-control">
-                    <label for="doctor_number2">Prescribing Doctor's Phone #</label>
+                    <input id="doctor_number" type="text" class="validate form-control">
+                    <label for="doctor_number">Prescribing Doctor's Phone #</label>
                 </div>
 
             </div>
@@ -204,14 +297,14 @@
 </div>
 
 
-  <div id="fill-out" class="modal fade in">
+<div id="fill-out" class="modal fade in">
     <div class="modal-header">
         <h3 class="modalHead">Wait!
             <i class="medium material-icons right">report</i>
         </h3>
     </div>
 
-     <div class="modal-content">
+    <div class="modal-content">
         <h5 class="modalBody">Please fill out all text fields before adding a new medication. Picture is optional.</h5>
     </div>
 
@@ -219,7 +312,7 @@
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Okay<i
                 class="medium material-icons right">check_circle</i></a>
     </div>
- 
+
 
 </div>
 
