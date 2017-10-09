@@ -149,8 +149,6 @@ function uploadMedsCloudinary() {
     var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
 
     var imgPreview = document.getElementById('img-preview');
-    var fileUpload = document.getElementById('file-upload');
-
 
     event.preventDefault();
 
@@ -210,28 +208,28 @@ function addTables(medsData) {
         "<span class=\"title\"><h5>Medication: " + medsData.name + "</h5></span> <p>click to expand info<br>" + "</p>" + "</li>" + "</ul>" + "</div>" +
         "<div class=\"collapsible-body\">" + "<form method=\"GET\" class=\"col s12\">" + "<br>" +
         "<div class=\"row\">" + "<div class=\"input-field col s6\">" +
-        "<input disabled value=\"" + medsData.name + "\" id=\"med_name" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.name + "\" id=\"med_name" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"med_name" + medsData.id + "\">Medication</label>" + "</div>" + "<div class=\"input-field col s6\">" +
-        "<input disabled value=\"" + medsData.drugClass + "\" id=\"drug_class" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.drugClass + "\" id=\"drug_class" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"drug_class" + medsData.id + "\">Drug Class</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input-field col s12\">" +
-        "<textarea disabled id=\"med_desc" + medsData.id + "\" class=\"userMed materialize-textarea\"></textarea>" +
+        "<textarea disabled id=\"med_desc" + medsData.id + "\" value= " + medsData.description + "\" class=\"userMed materialize-textarea\"></textarea>" +
         "<label for=\"med_desc" + medsData.id + "\">Description of medication</label>" + "</div>" + "</div>" + "<br>" +
         "<div class=\"row\">" + "<div class=\"input-field col s4\">" +
-        "<input disabled value=\"" + medsData.dosage + "\" id=\"dosage" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.dosage + "\" id=\"dosage" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"dosage" + medsData.id + "\">Dosage</label>" + "</div>" +
         "<div class=\"input-field col s4\">" +
-        "<input disabled value=\"" + medsData.frequency + "\" id=\"frequency" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.frequency + "\" id=\"frequency" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"frequency" + medsData.id + "\">Frequency Taken</label>" + "</div>" +
         "<div class=\"input-field col s4\">" +
-        "<input disabled value=\"" + medsData.quantity + "\" id=\"quantity" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.quantity + "\" id=\"quantity" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"quantity" + medsData.id + "\">Quantity Left</label>" + "</div>" + "</div>" + "<br>" +
         "<div class=\"row\">" +
         "<div class=\"input-field col s6\">" +
-        "<input disabled value=\"" + medsData.doctor_Name + "\" id=\"doctor" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.doctor_Name + "\" id=\"doctor" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"doctor" + medsData.id + "\">Prescribing Doctor</label>" + "</div>" +
         "<div class=\"input-field col s6\">" +
-        "<input disabled value=\"" + medsData.phoneNumber + "\" id=\"doctor_number" + medsData.id + "\"" + "type=\"text\" class=\"userMed" + medsData.id + "\" validate\">" +
+        "<input disabled value=\"" + medsData.phoneNumber + "\" id=\"doctor_number" + medsData.id + "\"" + "type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"doctor_number" + medsData.id + "\">Prescribing Doctor's Phone #</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input field col s6\">" + "<div class=\"card\">" +
         "<img src=\"" + medsData.img + "\" class=\"img-preview\"/>" +
@@ -304,7 +302,6 @@ function getMeds() {
     }
 
 }
-
 
 export { validateForm, editMedsButton, clearContent, getMeds,
 addTables, addMeds, updateMeds, deleteMeds, renderMeds, uploadMedsCloudinary};
