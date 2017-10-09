@@ -18,7 +18,9 @@ module.exports = function(app) {
 
             res.json(results);
 
-            console.log(results[0].name);
+        }).catch(function (error) {
+
+            res.json(error)
 
         });
 
@@ -44,6 +46,10 @@ module.exports = function(app) {
             img: req.body.img,
             doctor_Name: req.body.doctor,
             phoneNumber: req.body.drNumber
+        }).catch(function (error) {
+
+            res.json(error)
+
         });
 
     });
@@ -56,16 +62,54 @@ module.exports = function(app) {
 
         db.meds.destroy({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
-        });
+        }).then(function (dbMeds) {
+
+            res.json(dbMeds);
+
+        }).catch(function (error) {
+
+            res.json(error)
+
+        })
     });
 
 
-    // // PUT route for updating todos. The updated todo will be available in req.body
-    // app.put("/api/meds", function(req, res) {
-    //
-    //
-    // });
+    // PUT route for updating todos. The updated todo will be available in req.body
+    app.put("/api/meds", function(req, res) {
+
+        db.meds.update({
+
+            name: req.body.medName,
+            drugClass: req.body.drugClass,
+            description: req.body.medDesc,
+            dosage: req.body.dosage,
+            frequency: req.body.frequency,
+            quantity: req.body.quantity,
+            img: req.body.img,
+            doctor_Name: req.body.doctor,
+            phoneNumber: req.body.drNumber
+
+        }, {
+
+            where: {
+
+                id: req.body.id
+
+            }
+        }).then(function (dbMeds) {
+
+
+            res.json(dbMeds);
+
+        }).catch(function (error) {
+
+            res.json(error)
+
+        })
+
+
+    });
 };
 
