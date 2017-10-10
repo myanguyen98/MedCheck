@@ -18,13 +18,30 @@ function onSignIn(googleUser) {
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
-    postAJAX('/server/sign-in', {id_token: id_token})
-        .then(function(user) {
+    ('/server/sign-in', {id_token: id_token})
             // The user is now signed in on the server too
             // and the user should now have a session cookie
             // for the whole site.
-            document.location.href = 'user-page.html/'
-        })
-
+            document.location.href = 'user-page.html';
 
 };
+
+
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+        document.location.href = 'index.html';
+        alert("Sign Out Succesful")
+    });
+}
+
+gapi.load('auth2', function() {
+    gapi.auth2.init({
+        client_id: "231664727343-vuspvrttt5hgu9fdp1cijrfds6h8psqp.apps.googleusercontent.com",
+    }).then(function(auth2) {
+        console.log( "signed in: " + auth2.isSignedIn.get() );
+        auth2.isSignedIn.listen(onSignIn);
+    });
+});
