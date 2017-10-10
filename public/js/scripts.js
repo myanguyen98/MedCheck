@@ -233,6 +233,12 @@ function renderMeds(rows) {
 
         medsTable.prepend(rows);
     }
+    /* adds the materialize onclick to each med row
+    --ALF, COMMENT YOUR FLIPPIN CODE! 
+    Sincerly.
+    Rob
+    */
+    $('.collapsible').collapsible();
 
 }
 
@@ -322,7 +328,6 @@ function getMeds() {
             for (var i = 0; i < data.length; i++) {
 
                 meds.push(addTables(data[i]));
-
             }
 
             renderMeds(meds);
