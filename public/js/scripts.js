@@ -3,10 +3,19 @@
 
 var medsTable = $("#myMeds");
 
+//Uploads information to CLoudinary
+var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
+var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
+
+var imgPreview;
+var fileUpload = document.getElementById("file-upload-addMedications");
+
+//Waits until document is ready
 $(document).on("click", ".deleteMed", deleteMeds);
 $(document).on("click", ".editBtn", editMedsButton);
 $(document).on("click", "#clear-content", clearContent);
-$(document).on("click", "#file-upload", uploadMedsCloudinary);
+$(document).on("click", ".uploadBtn", uploadPic);
+//$(document).on("change", fileUpload, uploadMedsCloudinary);
 $(document).on("click", "#add-med", addMeds);
 $(document).on("click", ".save", updateMeds);
 
@@ -69,7 +78,6 @@ function editMedsButton() {
     $("#edit-image" + listItemData).show();
 
 }
-
 
 //Deletes medications
 function deleteMeds() {
@@ -156,6 +164,8 @@ function updateMeds() {
     // Function for handling what happens when the delete button is pressed
     var listItemData = $(this).attr("id");
 
+    console.log(listItemData);
+
     listItemData = listItemData.replace("save-change", "");
 
     var updatedMeds = {
@@ -170,10 +180,16 @@ function updateMeds() {
         drNumber: $("#doctor_number" + listItemData).val()
     };
 
+    console.log(updatedMeds);
+
+    $("#save-change" + listItemData).hide();
+    $(".userMed" + listItemData).prop('disabled', true);
+    $("#edit-image" + listItemData).hide();
+
 
     $.ajax({
         method: "PUT",
-        url: "api/meds",
+        url: "/api/meds/" + listItemData,
         data: updatedMeds
     }).done(getMeds).catch(function (error) {
 
@@ -183,14 +199,33 @@ function updateMeds() {
 
 }
 
+function uploadPic() {
 
-function uploadMedsCloudinary() {
+    // Function for handling what happens when the delete button is pressed
+    imgPreview = $(this).attr("id");
 
-    //Uploads information to CLoudinary
-    var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
-    var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
+    var id = imgPreview.replace("edit-image", "");
 
-    var imgPreview = document.getElementById('img-preview');
+    imgPreview = "imgAdd" + id;
+
+    console.log(imgPreview);
+
+    imgPreview = document.getElementById(imgPreview);
+
+    console.log(imgPreview);
+
+    fileUpload = "file-upload-addMedications" + id;
+
+    console.log(fileUpload);
+
+    fileUpload = document.getElementById(fileUpload);
+
+    console.log(fileUpload);
+
+    $(document).on("change", fileUpload, uploadMedsCloudinary);
+}
+
+function uploadMedsCloudinary(event) {
 
     event.preventDefault();
 
@@ -213,7 +248,6 @@ function uploadMedsCloudinary() {
         console.log(res);
 
         imgPreview.src = res.data.secure_url;
-
 
     }).catch(function (error) {
 
@@ -280,10 +314,10 @@ function addTables(medsData) {
         "<input disabled value=\"" + medsData.phoneNumber + "\" id=\"doctor_number" + medsData.id + "\"" + "type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label for=\"doctor_number" + medsData.id + "\">Prescribing Doctor's Phone #</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input field col s6\">" + "<div class=\"card\">" +
-        "<img src=\"" + medsData.img + "\" class=\"img-preview\"/>" +
+        "<img src=\"" + medsData.img + "\" id=\"imgAdd" + medsData.id + "\"  class=\"img-preview\"/>" +
         "<label class=\"file-upload-container\" for=\"file-upload-myMedications" + medsData.id + "\">" +
-        "<input class= \"uploadButton\" id=\"file-upload-myMedications" + medsData.id + "\" type=\"file\">" +
-        "<a id=\"edit-image" + medsData.id + "\" class=\"waves-effect waves-light btn uploadBtn2\">Select an Image</a>" + "</label>" +
+        "<input class= \"uploadButton\" id=\"file-upload-addMedications" + medsData.id + "\" type=\"file\">" +
+        "<a id=\"edit-image" + medsData.id + "\" class=\"waves-effect waves-light btn uploadBtn uploadBtn2\">Select an Image</a>" + "</label>" +
         "</div>" + "</div>" + "</div>" +
         "<div class=\"row\">" +
         "<div class=\"col s2\">" +
