@@ -22,7 +22,7 @@ function onSignIn(googleUser) {
             // The user is now signed in on the server too
             // and the user should now have a session cookie
             // for the whole site.
-            document.location.href = 'user-page.html';
+            document.location.href = '/logged';
 
 };
 
@@ -32,7 +32,7 @@ function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
-        document.location.href = 'index.html';
+        document.location.href = '/';
         alert("Sign Out Succesful")
     });
 }
