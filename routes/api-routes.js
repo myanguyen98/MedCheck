@@ -77,7 +77,8 @@ module.exports = function(app) {
 
 
     // PUT route for updating todos. The updated todo will be available in req.body
-    app.put("/api/meds", function(req, res) {
+    app.put("/api/meds/:id", function(req, res) {
+
 
         db.meds.update({
 
