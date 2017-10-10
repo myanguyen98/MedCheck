@@ -108,7 +108,7 @@ function clearContent() {
 function addMeds() {
 
     // If all required fields are filled
-    if (validateForm === true) {
+    if (validateForm() === true) {
         // Create an object for the user's data
 
         var newMed = {

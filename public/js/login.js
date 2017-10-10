@@ -43,5 +43,6 @@ gapi.load('auth2', function() {
     }).then(function(auth2) {
         console.log( "signed in: " + auth2.isSignedIn.get() );
         auth2.isSignedIn.listen(onSignIn);
+
     });
 });
