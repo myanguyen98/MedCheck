@@ -76,7 +76,7 @@ function editMedsButton() {
     $("#save-change" + listItemData).show();
     $(".userMed" + listItemData).prop('disabled', false);
     $("#edit-image" + listItemData).show();
-
+    $("#med_desc" + listItemData).prop('disabled', false);
 }
 
 //Deletes medications
