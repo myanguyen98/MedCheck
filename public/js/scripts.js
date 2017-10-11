@@ -152,7 +152,7 @@ function addMeds() {
         });
         $('#successful-add').modal('open');
 
-        }).done(getMeds);
+        
 
        
 
