@@ -134,7 +134,7 @@ function addMeds() {
 
         };
 
-
+        clearContent();
         // AJAX post the data to the friends API.
         $.post("/api/meds", newMed, function (data) {
 
@@ -143,7 +143,7 @@ function addMeds() {
             console.log(data);
 
         });
-
+        $('#successful-add').modal('open');
     }
 
     else {
@@ -153,7 +153,7 @@ function addMeds() {
 
     console.log(newMed);
 
-    clearContent();
+    
 
     return false;
 
@@ -296,7 +296,7 @@ function addTables(medsData) {
         "<input disabled value=\"" + medsData.drugClass + "\" id=\"drug_class" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
         "<label class=\"active\"for=\"drug_class" + medsData.id + "\">Drug Class</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input-field col s12\">" +
-        "<textarea disabled id=\"med_desc" + medsData.id + "\" value= " + medsData.description + "\" class=\"userMed materialize-textarea\"></textarea>" +
+        "<textarea disabled id=\"med_desc" + medsData.id + "\" value= " + medsData.description + "\" class=\"materialize-textarea userMed \"></textarea>" +
         "<label class=\"active\"for=\"med_desc" + medsData.id + "\">Description of medication</label>" + "</div>" + "</div>" + "<br>" +
         "<div class=\"row\">" + "<div class=\"input-field col s4\">" +
         "<input disabled value=\"" + medsData.dosage + "\" id=\"dosage" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
