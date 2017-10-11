@@ -67,13 +67,15 @@ function validateForm() {
 //Hides edit button
 function editMedsButton() {
 
-    // Function for handling what happens when the delete button is pressed
+    //Gets the id of THIS specific button
     var listItemData = $(this).attr("id");
 
+    //Id number
     listItemData = listItemData.replace("edit", "");
 
     console.log(listItemData);
 
+    //Shows the specific buttpn on that table row
     $("#save-change" + listItemData).show();
     $(".userMed" + listItemData).prop('disabled', false);
     $("#med_desc" + listItemData).prop('disabled', false);
@@ -85,12 +87,15 @@ function editMedsButton() {
 function deleteMeds() {
 
     // Function for handling what happens when the delete button is pressed
+    //Gets the id of THIS specific button
     var listItemData = $(this).attr("id");
 
+    //Id number
     listItemData = listItemData.replace("deleteMed", "");
 
     console.log(listItemData);
 
+    //AJAX/Post method that delete the specific id number
     $.ajax({
         method: "DELETE",
         url: "/api/meds/" + listItemData
@@ -99,7 +104,7 @@ function deleteMeds() {
 
 }
 
-//Clears form box when adding new medications
+//Clears form box input field
 function clearContent() {
 
     $("#med_name").val("");
@@ -131,12 +136,10 @@ function addMeds() {
             img: $("#imgAdd").attr("src"),
             doctor: $("#doctor").val(),
             drNumber: $("#doctor_number").val()
-
-
         };
 
 
-        // AJAX post the data to the friends API.
+        // AJAX post that adds new medications to the database
         $.post("/api/meds", newMed, function (data) {
 
             console.log("Success");
@@ -144,6 +147,8 @@ function addMeds() {
             console.log(data);
 
         }).done(getMeds);
+
+        clearContent();
 
     }
 
@@ -154,7 +159,7 @@ function addMeds() {
 
     console.log(newMed);
 
-    clearContent();
+
 
     return false;
 
@@ -170,17 +175,28 @@ function updateMeds() {
 
     listItemData = listItemData.replace("save-change", "");
 
-    var updatedMeds = {
-        medName: $("#med_name" + listItemData).val(),
-        drugClass: $("#drug_class" + listItemData).val(),
-        medDesc: $("#med_desc" + listItemData).val(),
-        dosage: $("#dosage" + listItemData).val(),
-        frequency: $("#frequency" + listItemData).val(),
-        quantity: $("#quantity" + listItemData).val(),
-        img: $("#imgAdd" + listItemData).attr("src"),
-        doctor: $("#doctor" + listItemData).val(),
-        drNumber: $("#doctor_number" + listItemData).val()
-    };
+    // If all required fields are filled
+    if (validateForm() === true) {
+        // Create an object for the user's data
+        var updatedMeds = {
+            medName: $("#med_name" + listItemData).val(),
+            drugClass: $("#drug_class" + listItemData).val(),
+            medDesc: $("#med_desc" + listItemData).val(),
+            dosage: $("#dosage" + listItemData).val(),
+            frequency: $("#frequency" + listItemData).val(),
+            quantity: $("#quantity" + listItemData).val(),
+            img: $("#imgAdd" + listItemData).attr("src"),
+            doctor: $("#doctor" + listItemData).val(),
+            drNumber: $("#doctor_number" + listItemData).val()
+        };
+
+    }
+
+    else
+    {
+        //Pop up modals that tells user to finish the fields
+        $('#fill-out').modal('open');
+    }
 
     console.log(updatedMeds);
 
@@ -203,7 +219,7 @@ function updateMeds() {
 
 function uploadPic() {
 
-    // Function for handling what happens when the delete button is pressed
+    // Gets the id of the specific upload button
     imgPreview = $(this).attr("id");
 
     var id = imgPreview.replace("edit-image", "");
