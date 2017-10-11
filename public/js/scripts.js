@@ -75,6 +75,7 @@ function editMedsButton() {
 
     $("#save-change" + listItemData).show();
     $(".userMed" + listItemData).prop('disabled', false);
+    $("#med_desc" + listItemData).prop('disabled', false);
     $("#edit-image" + listItemData).show();
 
 }
@@ -291,28 +292,28 @@ function addTables(medsData) {
         "<div class=\"collapsible-body\">" + "<form method=\"GET\" class=\"col s12\">" + "<br>" +
         "<div class=\"row\">" + "<div class=\"input-field col s6\">" +
         "<input disabled value=\"" + medsData.name + "\" id=\"med_name" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"med_name" + medsData.id + "\">Medication</label>" + "</div>" + "<div class=\"input-field col s6\">" +
+        "<label class=\"active\"for=\"med_name" + medsData.id + "\">Medication</label>" + "</div>" + "<div class=\"input-field col s6\">" +
         "<input disabled value=\"" + medsData.drugClass + "\" id=\"drug_class" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"drug_class" + medsData.id + "\">Drug Class</label>" + "</div>" + "</div>" +
+        "<label class=\"active\"for=\"drug_class" + medsData.id + "\">Drug Class</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input-field col s12\">" +
         "<textarea disabled id=\"med_desc" + medsData.id + "\" value= " + medsData.description + "\" class=\"userMed materialize-textarea\"></textarea>" +
-        "<label for=\"med_desc" + medsData.id + "\">Description of medication</label>" + "</div>" + "</div>" + "<br>" +
+        "<label class=\"active\"for=\"med_desc" + medsData.id + "\">Description of medication</label>" + "</div>" + "</div>" + "<br>" +
         "<div class=\"row\">" + "<div class=\"input-field col s4\">" +
         "<input disabled value=\"" + medsData.dosage + "\" id=\"dosage" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"dosage" + medsData.id + "\">Dosage</label>" + "</div>" +
+        "<label class=\"active\"for=\"dosage" + medsData.id + "\">Dosage</label>" + "</div>" +
         "<div class=\"input-field col s4\">" +
         "<input disabled value=\"" + medsData.frequency + "\" id=\"frequency" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"frequency" + medsData.id + "\">Frequency Taken</label>" + "</div>" +
+        "<label class=\"active\"for=\"frequency" + medsData.id + "\">Frequency Taken</label>" + "</div>" +
         "<div class=\"input-field col s4\">" +
         "<input disabled value=\"" + medsData.quantity + "\" id=\"quantity" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"quantity" + medsData.id + "\">Quantity Left</label>" + "</div>" + "</div>" + "<br>" +
+        "<label class=\"active\"for=\"quantity" + medsData.id + "\">Quantity Left</label>" + "</div>" + "</div>" + "<br>" +
         "<div class=\"row\">" +
         "<div class=\"input-field col s6\">" +
         "<input disabled value=\"" + medsData.doctor_Name + "\" id=\"doctor" + medsData.id + "\" type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"doctor" + medsData.id + "\">Prescribing Doctor</label>" + "</div>" +
+        "<label class=\"active\"for=\"doctor" + medsData.id + "\">Prescribing Doctor</label>" + "</div>" +
         "<div class=\"input-field col s6\">" +
         "<input disabled value=\"" + medsData.phoneNumber + "\" id=\"doctor_number" + medsData.id + "\"" + "type=\"text\" class=\"userMed" + medsData.id + " validate\">" +
-        "<label for=\"doctor_number" + medsData.id + "\">Prescribing Doctor's Phone #</label>" + "</div>" + "</div>" +
+        "<label class=\"active\"for=\"doctor_number" + medsData.id + "\">Prescribing Doctor's Phone #</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input field col s6\">" + "<div class=\"card\">" +
         "<img src=\"" + medsData.img + "\" id=\"imgAdd" + medsData.id + "\"  class=\"img-preview\"/>" +
         "<label class=\"file-upload-container\" for=\"file-upload-myMedications" + medsData.id + "\">" +
