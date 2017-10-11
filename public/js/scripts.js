@@ -8,14 +8,14 @@ var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/alrod909/upload";
 var CLOUDINARY_UPLOAD_PRESET = 'dov1tdtx';
 
 var imgPreview;
-var fileUpload = document.getElementById("file-upload-addMedications");
+var fileUpload;
 
-//Waits until document is ready
+//Waits until document is ready and allows the user to
+//use all these specific buttons
 $(document).on("click", ".deleteMed", deleteMeds);
 $(document).on("click", ".editBtn", editMedsButton);
 $(document).on("click", "#clear-content", clearContent);
 $(document).on("click", ".uploadBtn", uploadPic);
-//$(document).on("change", fileUpload, uploadMedsCloudinary);
 $(document).on("click", "#add-med", addMeds);
 $(document).on("click", ".save", updateMeds);
 
@@ -52,6 +52,7 @@ $(window).on('load', function () {
 
 
 // Form validation
+// To validate all the info
 function validateForm() {
     var isValid = true;
 
@@ -142,7 +143,7 @@ function addMeds() {
 
             console.log(data);
 
-        });
+        }).done(getMeds);
 
     }
 
@@ -316,7 +317,7 @@ function addTables(medsData) {
         "<label class=\"active\"for=\"doctor_number" + medsData.id + "\">Prescribing Doctor's Phone #</label>" + "</div>" + "</div>" +
         "<div class=\"row\">" + "<div class=\"input field col s6\">" + "<div class=\"card\">" +
         "<img src=\"" + medsData.img + "\" id=\"imgAdd" + medsData.id + "\"  class=\"img-preview\"/>" +
-        "<label class=\"file-upload-container\" for=\"file-upload-myMedications" + medsData.id + "\">" +
+        "<label class=\"file-upload-container\" for=\"file-upload-addMedications" + medsData.id + "\">" +
         "<input class= \"uploadButton\" id=\"file-upload-addMedications" + medsData.id + "\" type=\"file\">" +
         "<a id=\"edit-image" + medsData.id + "\" class=\"waves-effect waves-light btn uploadBtn uploadBtn2\">Select an Image</a>" + "</label>" +
         "</div>" + "</div>" + "</div>" +
