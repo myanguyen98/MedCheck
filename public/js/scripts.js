@@ -224,35 +224,44 @@ function uploadPic() {
 
     var id = imgPreview.replace("edit-image", "");
 
+    //Changes it to the to the image screen to store the image
     imgPreview = "imgAdd" + id;
 
     console.log(imgPreview);
 
+    //Gets the whole tag based on the id
     imgPreview = document.getElementById(imgPreview);
 
     console.log(imgPreview);
 
+    //
     fileUpload = "file-upload-addMedications" + id;
 
     console.log(fileUpload);
 
+    //
     fileUpload = document.getElementById(fileUpload);
 
     console.log(fileUpload);
 
+    //Waits until there is a chnage in the image and uploads it to the cloudinary
     $(document).on("change", fileUpload, uploadMedsCloudinary);
 }
 
+//Uploads the info/pic to the cloudinary api
 function uploadMedsCloudinary(event) {
 
     event.preventDefault();
 
+    //Gets the file that was appended to the site
     var file = event.target.files[0];
     var formData = new FormData();
 
+    //Appends file and cloudinary upload key to the form data
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
+    //Post method that uploads it to cloudinary
     axios({
         url: CLOUDINARY_URL,
         method: 'POST',
@@ -276,7 +285,7 @@ function uploadMedsCloudinary(event) {
 }
 
 
-// A function for rendering the list of authors to the page
+// A function for rendering the list of meds into the #myAdds div
 function renderMeds(rows) {
 
     medsTable.children().not(":last").remove();
@@ -295,9 +304,11 @@ function renderMeds(rows) {
 }
 
 
+//Creates the table with all the information it needs
 function addTables(medsData) {
 
 
+    //Sets the id of medication as the first tag to identify later which to delete and update
     var newMeds = $("<div id=" + medsData.id + ">");
 
     newMeds.data("meds", medsData);
@@ -358,7 +369,7 @@ function addTables(medsData) {
 
 }
 
-
+//Get method that puts all the medication in the page
 function getMeds() {
 
     // Here we get the location of the root page.
@@ -376,7 +387,7 @@ function getMeds() {
             console.log("------------------------------------");
             console.log(data);
 
-            // Loop through and display each of the customers
+            // Loop through and display each of the medications
             for (var i = 0; i < data.length; i++) {
 
                 meds.push(addTables(data[i]));
@@ -402,4 +413,5 @@ function getMeds() {
 
 }
 
+//Gets all medications and renders them into the page
 getMeds();
