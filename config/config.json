@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
 
-    "password": "89988998ar",
+    "password": "root",
 
     "database": "medCheck_db",
     "host": "127.0.0.1",
