@@ -77,7 +77,7 @@ blockquote {
 blockquote {
   border-left: 5px solid #19B5BA; }
 
-#alertModal, #fill-out {
+#alertModal, #fill-out, #successful-add {
   border-radius: 14px; }
 
 #modalHead {
